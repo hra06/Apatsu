@@ -6,7 +6,8 @@ const router = express.Router();
 router.get('/',homeController.home)
 router.get('/team',homeController.team);
 router.get('/log-in',homeController.login)
+router.get('/sign-up',homeController.logup);
 
-// app.use('/users', require('./users'))
+router.use('/users', require('./users'))
 
 module.exports = router;
