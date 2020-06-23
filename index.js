@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const port = 3000;
-const router = require('./routes')
+const db = require('./config/mongoose')
 
 
 app.use(express.static('./assets'))

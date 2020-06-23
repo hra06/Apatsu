@@ -1,0 +1,167 @@
+/* Font Type */
+/* Font Rule */  /*font-family: 'Manrope', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+
+body{
+    font-family: 'Manrope', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    border-color: white;
+    /* background-image: url('./images/dark-hero-1.jpg'); */
+    background-image: url('https://www.freedomofcreation.co.uk/wp-content/uploads/sites/101/2016/05/Meet-the-Team-Header.jpg');
+    /* background-image: url('https://www.bellwoods.co.uk/wp-content/uploads/2017/06/Black-Plain-Wallpapers-For-Laptops.jpg'); */
+    background-repeat: no-repeat;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    background-size: 100vw;
+}
+
+header {
+    margin: 0px;
+    padding: 0px;
+    padding-top: 15px;
+    color: white;
+    padding-bottom: 10px;
+    /* background-color: black; */
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    /* border: 1px solid brown; */
+}
+
+header .one{
+    margin: 0;
+    padding: 0;
+    /* margin-top: 0.5vh; */
+    display: flex;
+    justify-content: space-between;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    margin-left: 8vw;
+    margin-right: 8vw;
+    /* border: 1px solid brown; */
+}
+header .one ul{
+    margin: 0;
+    padding: 0;
+}
+header .one ul li{
+    margin: 0;
+    padding: 0;
+    padding-left: 1vh;
+    /* font-size: 1.4rem; */
+    list-style: none;
+    display: inline;
+}
+header .one h1{
+    margin: 0;
+    padding: 0;
+}
+
+header .two{
+    margin: 0;
+    padding: 0;
+    /* margin-top: 0.5vh; */
+    display: flex;
+    justify-content: space-between;
+    margin-left: 8vw;
+    margin-right: 8vw;
+    /* border: 1px solid brown; */
+}
+header .two ul{
+    margin: 0;
+    padding: 0;
+}
+
+header .two ul li{
+    margin: 0;
+    padding: 0;
+
+    font-size: 1.4rem;
+    padding-right: 8vw;
+    list-style: none;
+    display: inline;
+}
+
+header .two h3{
+    margin: 0;
+    padding: 0;
+}
+header a{
+    text-decoration: none;
+    color: white;
+}
+header .one a:hover, header .one li:hover{
+    text-decoration: none;
+    transition: ease-in-out;
+    transition-delay: 50ms;
+    transition-duration: 250ms;
+    color: #f95759;
+    box-shadow: #f95759;
+}
+
+header .two a:hover{
+    text-decoration: none;
+    transition-delay: 50ms;
+    transition: ease;
+    transition-duration: 250ms;
+    color: #0c96a8;
+    box-shadow: #f95759;
+    /* font-size: 1.41rem; */
+}
+
+
+/* Content Goes Here */
+.mp{
+    margin: 0;
+    padding: 0;
+}
+
+.login{
+    background-color: white;
+    
+}
+
+
+
+
+/* Till here */
+
+/* Footer */
+footer{    
+    border-top: 2px solid #474b4f;
+    padding-top: 5px;
+    /* border-top: 1px solid white; */
+	width: 100%;
+	height: auto;
+    display: flex;
+    font-family: 'Manrope', sans-serif;
+	background-color: #222629;
+	justify-content: space-around;
+	box-shadow: 2px soild #474b4f;
+}
+
+footer div{
+	width: 30vw;
+	height: auto;
+	color: white;
+}
+/* 
+footer .sty{
+	font-size: 2rem;
+} */
+
+#contact{
+	display: flex;
+}
+footer ul{
+    list-style-type:none;
+	padding-bottom: 0.6rem;
+	font-size: 1.2rem;
+}
+
+div h6{
+    font-family: 'Manrope', sans-serif;
+    /* border-top: 1px solid #eae5e5; */
+    /* box-shadow: 4px white; */
+    text-align: center;
+    color: white;
+    background-color: #474b4f;
+}
