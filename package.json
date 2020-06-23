@@ -1,0 +1,17 @@
+{
+  "name": "apatsu",
+  "version": "1.0.0",
+  "description": "Helps People to locate Hospitals Blood-Bank Medicine-Stores & Help to deliver medicine @ their doorsteps and also help people to book ambulance",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "server":"nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Harsh Agarwal",
+  "license": "ISC"
+}
