@@ -103,6 +103,14 @@ header .two a:hover{
 }
 
 
+#usernav{
+    display: flex;
+}
+
+.user{
+    padding-left: 1vw;
+}
+
 
 #dashboard{
     display: flex;

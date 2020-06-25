@@ -108,6 +108,14 @@ header .two a:hover{
 }
 
 
+#usernav{
+    display: flex;
+}
+
+.user{
+    padding-left: 1vw;
+}
+
 /* Content Goes Here */
 .mp{
     margin: 0;

@@ -106,6 +106,13 @@ header .two a:hover{
     /* font-size: 1.41rem; */
 }
 
+#usernav{
+    display: flex;
+}
+
+.user{
+    padding-left: 1vw;
+}
 
 #main-wall{
     /* border: 1px solid brown; */

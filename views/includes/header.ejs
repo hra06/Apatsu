@@ -22,10 +22,20 @@
             <li><a href="#">Self Assesment</a></li>
             <li><a href="/team">Contact Us</a></li>
         </ul>
+        <li id="usernav">
+            <% if(user){ %>
+                <ul><h3><a class="user" href="/log-in"><%= user.name %></a></h3></ul>
+                <ul><h3><a class="user" href="/users/sign-out">Sign-Out</a></h3></ul>
+            <% }else{ %> 
+                <ul><h3><a class="user" href="/log-in">Sign-In</a></h3></ul>
+                <ul><h3><a class="user" href="/sign-up">Sign-Up</a></h3></ul>
+            <% } %>
+        </li>
+        <!-- <h3><a href="/log-in">Sign-In</a></h3>
         <h3><a href="/log-in"><% if(user){ %>
                 <span><%= user.name %></span>
         <% }else{ %> 
                 <span>Sign-In</span>
-        <% } %></a></h3>
+        <% } %></a></h3> -->
     </div>
 </header>
