@@ -21,3 +21,15 @@ module.exports.create = function(req,res){
     });
 
 }
+
+
+module.exports.profile = function(req,res){
+    return res.render('dash',{
+        title:'Profile'
+    })
+}
+
+
+module.exports.createSession = function(req,res){
+    return res.redirect('/');
+}

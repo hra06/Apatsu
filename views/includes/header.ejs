@@ -22,6 +22,10 @@
             <li><a href="#">Self Assesment</a></li>
             <li><a href="/team">Contact Us</a></li>
         </ul>
-        <h3><a href="/log-in">Sign-In</a></h3>
+        <h3><a href="/log-in"><% if(user){ %>
+                <span><%= user.name %></span>
+        <% }else{ %> 
+                <span>Sign-In</span>
+        <% } %></a></h3>
     </div>
 </header>

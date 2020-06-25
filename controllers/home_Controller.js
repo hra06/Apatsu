@@ -11,10 +11,18 @@ module.exports.team = function(req,res){
 
 // Render the SignUp Page
 module.exports.login = function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
+
     return res.render('login',{title:'Sign-In'})
 }
 
 // Render the SignUp Page
 module.exports.logup = function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
+
     return res.render('logup',{title:'Sign-Up'})
 }
