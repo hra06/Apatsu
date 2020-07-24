@@ -11,6 +11,7 @@ router.get('/checkup',passport.checkAuthentication,serviceController.checkup);
 router.get('/hospital',passport.checkAuthentication,serviceController.hospital);
 router.get('/ambulance',passport.checkAuthentication,serviceController.ambulance);
 router.post('/medicineOrder',passport.checkAuthentication,serviceController.medicineOrder);
+router.post('/ambulanceCall',passport.checkAuthentication,serviceController.ambulanceCall);
 
 
 

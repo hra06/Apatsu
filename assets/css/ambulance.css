@@ -152,67 +152,96 @@ header .two a:hover{
 }
 
 
+/* Ambulance Form Starts */
 
+#amb-call{
+    min-height: 70vh;
+    background-color: white;
+}
+/* 
+#amb-call h1{
+    font-size: 2.5rem;
+    margin-left: 26vw;
+    padding-top: 5vh;
 
-.timeline{
-    margin-top: 10vh;
-    margin-left: 12.5%;
-    width: 75%;
-    /* border: 2px solid black; */
 }
 
-
-.timeline-box{
-    color: black;
-    position: relative;
-    margin: 5px;
-    width: 40%;
-    left: 5%;
-    min-height: 150px;
-    /* border: 2px solid black; */
-    padding: 5px;
+#amb-pat{
+    margin-left: 30vw;
+    margin-top: 2vh;
 }
 
-.timeline-box:nth-child(2n-1){
-    text-align: right;
-} 
+#amb-pat div label{
+    width: 5vw;
+} */
 
-.timeline-box:nth-child(2n){
-    left: 53%;
-} 
 
-.timeline-divider{
-    position: absolute; 
-    height: 75%;
-    width: 0%;
-    border: 3px dashed black;
-    display:flex;
-    top: 10%;
-    left: 50%;
+
+.service-div{
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
-.timeline h1{
-    font-family: 'Manrope', sans-serif;
-    /* color: white;     */
-    color: #0c96a8;
+#amb-call h1{
+    /* margin-left: 25vw; */
     text-align: center;
-    font-weight: bolder;
-    margin-bottom: 5vh;
-}
-
-.timeline h4{
-    color: #f95759;
-}
-
-.timeline-box h4{
-    font-size: 1.6rem;
-}
-.timeline-box p{
-    font-size: 1.3rem;
+    padding-top: 1vh;
+    font-size: 5.5rem;
 }
 
 
+/* form{
+    background-color: black;
+    opacity: 90%;
+} */
+form{
+    padding-bottom: 10vh;
+}
+form div,form nav{
+    margin-top: 1vh;
+    margin-left: 30vw;
+    padding-top: 1rem;
+}
+form div ul li{
+     margin-top: 1vh;
+}
 
+
+
+form div label, form nav label{
+    display: inline-block;
+    font-weight: 500;
+    font-size: 1.2rem;
+    width: 10rem;
+    color: black;
+}
+
+form div label sup{
+    font-size: 0.7rem;
+}
+
+form div input{
+    width: 30vw;
+    font-size: 1.2rem;    
+}
+
+amb-pat-gen{
+    width: 1vh;
+}
+
+/* #qty1 , #qty2 , #qty3 , #qty4 , #qty5 , #qty6 , #qty7 , #qty8 , #qty9 , #qty10{
+    width: 3rem;
+} */
+#submit{
+    width: 50vw;
+}
+form div ul li input{
+    width:28vw;
+}
+
+
+/* Ambulance Form Ends */
 
 /* Footer */
 footer{    

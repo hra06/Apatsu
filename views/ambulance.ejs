@@ -8,71 +8,68 @@
     <link rel="stylesheet" href="/css/ambulance.css">
 </head>
 <body>
-
-
     <%- include('./includes/header.ejs')%>
     
+    <div id="amb-call">
+        <h1>Call an Ambulance</h1>
 
+        <div id="amb-pat">
 
+            <form action="/service/ambulanceCall" method="POST">
+                <div>
+                    <label for="amb-pat-nam">Name</label>
+                    <input type="text" name="patinentName" id="amb-pat-nam" required>
+                </div>
 
+                <div>
+                    <label for="amb-pat-age">Age</label>
+                    <input type="number" name="patientAge" id="amb-pat-age" required>
+                </div>
+                <nav>
+                    <label for="amb-pat-gen">Gender</label>
+                    <input type="radio" name="patientSex" id="amb-pat-gen" value="male" required>Male&nbsp;
+                    <input type="radio" name="patientSex" id="amb-pat-gen" value="female" required>Female&nbsp;
+                    <input type="radio" name="patientSex" id="amb-pat-gen" value="others" required>Others&nbsp;
+                </nav>
+                <div>
+                    <label for="amb-pat-mob">MobileNo.</label>
+                    <input type="number" name="patientMob" id="amb-pat-mob" required>
+                </div>
+                <div>
+                    <label for="amb-pat-email">Email</label>
+                    <input type="email" name="patientEmail" id="amb-pat-email" required>
+                </div>
+                <div>
+                    <label for="amb-pat-adrs">Address</label>
+                    <input type="text" name="patientAddress" id="amb-pat-adrs" required>
+                </div>
+                <div>
+                    <label for="amb-pat-pin">Pincode</label>
+                    <input type="number" name="patientPincode" id="amb-pat-pin" required>
+                </div>                
+                <div>
+                    <p>Destination Hospital</p>
+                    <ul>
+                        <li>
+                            <label for="amb-pat-d-adrs">Address</label>
+                            <input type="text" name="patientHospital" id="amb-pat-d-adrs" required>
+                        </li>                        
+                        <li>
+                            <label for="amb-pat-d-pin">Pincode</label>
+                            <input type="number" name="patientHospitalPincode" id="amb-pat-d-pin" required>
+                        </li>
+                    </ul>
 
-    <div class="service-div" style="background-color: white;">
-        <br>
-        <!-- <div>
-            <p id="sentences">The driving force behind Apatsu is to locate nearest hospitals, calling ambulance, get medicines delivered at your doorsteps, check yourself by telling the symptoms,locate nearest bloodbanks etc.</p>
-        </div> -->
-
-        <div class="timeline">
-            <!-- <h1 class="services-head">Our Services</h1> -->
-            <h1 class="services-head"><i class="fa fa-cog " aria-hidden="true"></i> Our Services</h1>
-            <div class="timeline-box">
-                <h4><i class="fas fa-pills"></i> Medicines </h4>
-                <p>Driving to a pharmacy, waiting at the counter, keeping track of refills—this is what medication is all about these days, especially when you are taking care of your ailing loved ones at home. It is time you save time and get medicines delivered at your doorstep with our Medicine Delivery at <b>APATSU</b>. We assure you round-the-clock services along with providing you auto refills as and when your medicine supply draws to a close.</p>
+                </div>
+                <div id="submit">
+                    <input  type="submit">
+                </div>
                 
-            </div>
-            <div class="timeline-box">
-                <h4>Check Your self <i class="fas fa-stethoscope"></i></h4>
-                <p>Health is essential for everyone. Health can’t be bought by anything. Health is important no matter what country we are from or what race we are, or what age or gender we are. some important details like the patients allergy and medical history will be overlooked by the doctors when they diagnosing. The procedure for diagnosing also consume a big amount of time although the patients comes with a minor problem that they can settle it by themselves if they have the right help.</p>
                 
-            </div>
-            <div class="timeline-box">
-                <h4> <i class="fas fa-ambulance" aria-hidden="true"></i> Ambulance</h4>
-                <p>GPS based technology platform for fast and reliable first point medical attention.
-                With an increasing emphasis on promoting independent living today, having access to the nearest ambulance to you can provide much needed peace of mind in a worst case scenario.</p>
-                
-            </div>
-            <div class="timeline-box">
-                <h4>Hospitals <i class="fas fa-hospital"></i></h4>
-                <p>Need help finding hospitals and medical centers, medical clinics, CLSCs, community heath centers, physicians or alternative care specialists?  Whether you are moving to a new region and want to locate the medical clinic that is closest to your home or you need help finding a hospital that provides the specialized services you are seeking, we can help.</p>
-                
+            </form>
         </div>
-
-            <!-- <div class="timeline-divider">
-
-            </div> -->
-        </div>
-
-        <!-- Footer -->
-        <!-- <div>
-        <h6><i class="far fa-copyright"></i> Apatsu | At time of emergencies</h6>
-        </div> -->
-
-
-        <!-- <br><br> -->
-
-       
-
-
-        <%- include('./includes/footer.ejs')%>
-
-
-
-
     </div>
 
-
-
-
-
+    <%- include('./includes/footer.ejs')%>
 </body>
 </html>
