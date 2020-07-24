@@ -129,17 +129,17 @@ header .two a:hover{
 
 /* Design Main */
 
-#login-div{
+#logup-div{
     min-height: 60vh;
     padding-top: 5vh;
 }
 
-#from-login{
+#from-logup{
     margin-left: 40vw;
     font-size: 2rem;
 }
 
-#from-login h1{
+#from-logup h1{
     font-size: 2.5rem;
 }
 

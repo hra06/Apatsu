@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apatsu | <%= title %></title>
     <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/logup.css">
 </head>
 <body>
 
@@ -14,14 +14,15 @@
     
 
 
-    <div style="background-color: white;" >
+    <div style="background-color: white;" id="logup-div" >
 
 
 
-        <h1>Sign Up</h1>
+        
 
 
-        <form action="/users/create" method="post">
+        <form action="/users/create" method="post" id="form-logup">
+            <h1>Sign Up</h1>
             <div>
                 <label for="email">Email</label>
                 <input type="text" name="email" id="email">
@@ -46,12 +47,15 @@
        
 
 
-        <%- include('./includes/footer.ejs')%>
+        
 
 
 
 
     </div>
+
+
+    <%- include('./includes/footer.ejs')%>
 
 
 
