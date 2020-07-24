@@ -17,59 +17,124 @@
 
 
     <div class="service-div" style="background-color: white;">
-        <br>
-        <!-- <div>
-            <p id="sentences">The driving force behind Apatsu is to locate nearest hospitals, calling ambulance, get medicines delivered at your doorsteps, check yourself by telling the symptoms,locate nearest bloodbanks etc.</p>
-        </div> -->
-
-        <div class="timeline">
-            <!-- <h1 class="services-head">Our Services</h1> -->
-            <h1 class="services-head"><i class="fa fa-cog " aria-hidden="true"></i> Our Services</h1>
-            <div class="timeline-box">
-                <h4><i class="fas fa-pills"></i> Medicines </h4>
-                <p>Driving to a pharmacy, waiting at the counter, keeping track of refills—this is what medication is all about these days, especially when you are taking care of your ailing loved ones at home. It is time you save time and get medicines delivered at your doorstep with our Medicine Delivery at <b>APATSU</b>. We assure you round-the-clock services along with providing you auto refills as and when your medicine supply draws to a close.</p>
-                
+        
+        <div id="parent-form">
+    
+            <div id="headi">
+                <h1 >Medicine Delivery Form
+                </h1>
+                <p>we are happy to help you</p>
             </div>
-            <div class="timeline-box">
-                <h4>Check Your self <i class="fas fa-stethoscope"></i></h4>
-                <p>Health is essential for everyone. Health can’t be bought by anything. Health is important no matter what country we are from or what race we are, or what age or gender we are. some important details like the patients allergy and medical history will be overlooked by the doctors when they diagnosing. The procedure for diagnosing also consume a big amount of time although the patients comes with a minor problem that they can settle it by themselves if they have the right help.</p>
-                
+            
+            <div id="med-form">
+                <form action="/service/medicineOrder" method="POST">
+                    <!-- basic details -->
+                    <div>
+                        <label for="pat-name">Patient Name<sup>*</sup></label>
+                        <input type="text" name="patientName" id="pat-name" required>
+                    </div>
+                    <div>
+                        <label for="pat-age">Age<sup>*</sup></label>
+                        <input type="number" name="patientAge" id="pat-age" required>
+                    </div>
+                    <div>
+                        <label for="pat-gen">Gender<sup>*</sup></label>
+                        <input type="radio" name="patientGender" id="pat-gen" value="Male" required>Male &nbsp;                
+                        <input type="radio" name="patientGender" id="pat-gen" value="Female" required>Female &nbsp;
+                        <input type="radio" name="patientGender" id="pat-gen" value="TransGender" required>Others &nbsp;
+                    </div>
+                    <div>
+                        <label for="pat-adrs">Address<sup>*</sup></label>
+                        <input type="textarea" name="patientAddress" id="pat-adrs" rows="10" cols="20" required>
+                    </div>
+                    <div>
+                        <label for="pat-pin">Pincode<sup>*</sup></label>                
+                        <input type="number" name="patientPincode" id="pat-pin" required>
+                    </div>
+                    <div>
+                        <label for="pat-mob">Mobile Number<sup>*</sup></label>                
+                        <input type="number" name="patientMobile" id="pat-mob" required>
+                    </div>
+                    <div>
+                        <label for="pat-email">Email Address</label>
+                        <input type="email" name="patientEmail" id="pat-email">
+                    </div>
+    
+                    <!-- Medicines -->
+    
+                    <div>
+                        <label for="pat-med-1">Medicine Name<sup>*</sup></label>
+                        <input type="text" name="patientMedicine1" id="pat-med-1" required>
+                        &nbsp;&nbsp;&nbsp;<label for="pat-cap-1" id="qty1" >Qty.<sup>*</sup></label>
+                        <input type="number" name="quantity1" id="pat-cap-1" required>
+                    </div>
+                    <div>
+                        <label for="pat-med-2">Medicine Name</label>
+                        <input type="text" name="patientMedicine2" id="pat-med-2">
+                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty2">Qty.</label>
+                        <input type="number" name="quantity2" id="">
+                    </div>
+                    <div>
+                        <label for="pat-med-3">Medicine Name</label>
+                        <input type="text" name="patientMedicine3" id="pat-med-3">
+                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty3">Qty.</label>
+                        <input type="number" name="quantity3" id="">
+                    </div>
+                    <div>
+                        <label for="pat-med-4">Medicine Name</label>
+                        <input type="text" name="patientMedicine4" id="pat-med-4">
+                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty4" ">Qty.</label>
+                        <input type="number" name="quantity4" id="">
+                    </div>
+                    <div>
+                        <label for="pat-med-5">Medicine Name</label>
+                        <input type="text" name="patientMedicine5" id="pat-med-5">
+                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty5">Qty.</label>
+                        <input type="number" name="quantity5" id="">
+                    </div>
+                    <div>
+                        <label for="pat-med-6">Medicine Name</label>
+                        <input type="text" name="patientMedicine6" id="pat-med-6">
+                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty6">Qty.</label>
+                        <input type="number" name="quantity6" id="">
+                    </div>
+                    <div>
+                        <label for="pat-med-7">Medicine Name</label>
+                        <input type="text" name="patientMedicine7" id="pat-med-7">
+                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty7">Qty.</label>
+                        <input type="number" name="quantity7" id="">
+                    </div>
+                    <div>
+                        <label for="pat-med-8">Medicine Name</label>
+                        <input type="text" name="patientMedicine8" id="pat-med-8">
+                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty8">Qty.</label>
+                        <input type="number" name="quantity8" id="">
+                    </div>
+                    <div>
+                        <label for="pat-med-9">Medicine Name</label>
+                        <input type="text" name="patientMedicine9" id="pat-med-9">
+                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty9">Qty.</label>
+                        <input type="number" name="quantity9" id="">
+                    </div>
+                    <div>
+                        <label for="pat-med-10">Medicine Name</label>
+                        <input type="text" name="patientMedicine10" id="pat-med-10">
+                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty10">Qty.</label>
+                        <input type="number" name="quantity10" id="">
+                    </div>
+                    <div style="padding-left: 0.5vw;">
+                        <input type="submit" name="" id="sub">
+                    </div>             
+                </form>
+    
             </div>
-            <div class="timeline-box">
-                <h4> <i class="fas fa-ambulance" aria-hidden="true"></i> Ambulance</h4>
-                <p>GPS based technology platform for fast and reliable first point medical attention.
-                With an increasing emphasis on promoting independent living today, having access to the nearest ambulance to you can provide much needed peace of mind in a worst case scenario.</p>
-                
-            </div>
-            <div class="timeline-box">
-                <h4>Hospitals <i class="fas fa-hospital"></i></h4>
-                <p>Need help finding hospitals and medical centers, medical clinics, CLSCs, community heath centers, physicians or alternative care specialists?  Whether you are moving to a new region and want to locate the medical clinic that is closest to your home or you need help finding a hospital that provides the specialized services you are seeking, we can help.</p>
-                
-        </div>
-
-            <!-- <div class="timeline-divider">
-
-            </div> -->
-        </div>
-
-        <!-- Footer -->
-        <!-- <div>
-        <h6><i class="far fa-copyright"></i> Apatsu | At time of emergencies</h6>
-        </div> -->
-
-
-        <!-- <br><br> -->
-
-       
-
-
-        <%- include('./includes/footer.ejs')%>
-
-
-
+    
+        </div>  
 
     </div>
 
+
+    <%- include('./includes/footer.ejs')%>
 
 
 

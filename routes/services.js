@@ -10,7 +10,7 @@ router.get('/medicine',passport.checkAuthentication,serviceController.medicine);
 router.get('/checkup',passport.checkAuthentication,serviceController.checkup);
 router.get('/hospital',passport.checkAuthentication,serviceController.hospital);
 router.get('/ambulance',passport.checkAuthentication,serviceController.ambulance);
-// router.get('/medicine',passport.checkAuthentication,serviceController.medicine);
+router.post('/medicineOrder',passport.checkAuthentication,serviceController.medicineOrder);
 
 
 

@@ -153,64 +153,60 @@ header .two a:hover{
 
 
 
+/* Medicine Form start */
 
-.timeline{
-    margin-top: 10vh;
-    margin-left: 12.5%;
-    width: 75%;
-    /* border: 2px solid black; */
+
+.service-div{
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
-
-.timeline-box{
-    color: black;
-    position: relative;
-    margin: 5px;
-    width: 40%;
-    left: 5%;
-    min-height: 150px;
-    /* border: 2px solid black; */
-    padding: 5px;
-}
-
-.timeline-box:nth-child(2n-1){
-    text-align: right;
-} 
-
-.timeline-box:nth-child(2n){
-    left: 53%;
-} 
-
-.timeline-divider{
-    position: absolute; 
-    height: 75%;
-    width: 0%;
-    border: 3px dashed black;
-    display:flex;
-    top: 10%;
-    left: 50%;
-}
-
-.timeline h1{
-    font-family: 'Manrope', sans-serif;
-    /* color: white;     */
-    color: #0c96a8;
+#headi{
+    /* margin-left: 25vw; */
     text-align: center;
-    font-weight: bolder;
-    margin-bottom: 5vh;
+    padding-top: 1vh;
+    font-size: 2.4rem;
 }
 
-.timeline h4{
-    color: #f95759;
+
+/* form{
+    background-color: black;
+    opacity: 90%;
+} */
+form{
+    padding-bottom: 10vh;
+}
+form div{
+    margin-left: 30vw;
+    padding-top: 1rem;
 }
 
-.timeline-box h4{
-    font-size: 1.6rem;
-}
-.timeline-box p{
-    font-size: 1.3rem;
+form div label{
+    display: inline-block;
+    font-weight: 500;
+    font-size: 1.2rem;
+    width: 10rem;
+    color: black;
 }
 
+form div label sup{
+    font-size: 0.7rem;
+}
+
+#qty1 , #qty2 , #qty3 , #qty4 , #qty5 , #qty6 , #qty7 , #qty8 , #qty9 , #qty10{
+    width: 3rem;
+}
+#sub{
+    text-align: center;
+    width: 30vw;
+}
+#pat-cap-1{
+    width: 3rem;
+}
+
+
+/* Medicine Form ends */
 
 
 
