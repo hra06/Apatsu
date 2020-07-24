@@ -9,7 +9,8 @@ router.get('/',homeController.home)
 router.get('/team',homeController.team);
 router.get('/log-in',homeController.login)
 router.get('/sign-up',homeController.logup);
+router.get('/services',homeController.services);
 
 router.use('/users', require('./users'))
-
+router.use('/service', require('./services'))
 module.exports = router;

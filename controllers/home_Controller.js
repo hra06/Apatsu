@@ -9,6 +9,11 @@ module.exports.team = function(req,res){
     return res.render('contact',{title:'Team'})
 }
 
+//Rendering the service page
+module.exports.services = function(req,res){
+    return res.render('services',{title:'Services'})
+} 
+
 // Render the SignUp Page
 module.exports.login = function(req,res){
     if(req.isAuthenticated()){
