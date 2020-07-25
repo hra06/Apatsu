@@ -13,4 +13,5 @@ router.get('/services',homeController.services);
 
 router.use('/users', require('./users'))
 router.use('/service', require('./services'))
+router.use('/join', require('./join'))
 module.exports = router;

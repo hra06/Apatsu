@@ -1,7 +1,8 @@
 // Render the home/main page
 module.exports.home = function(req,res){
     // console.log(req);
-    return res.render('index',{title:'Home'});
+    console.log(req.medUser || 'None')
+    return res.render('login',{title:'Login | Medical'});
 }
 
 // Render the team Page

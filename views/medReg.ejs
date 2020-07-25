@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apatsu | <%= title %></title>
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/medReg.css">
+</head>
+<body>
+    <%- include('./includes/header.ejs')%>
+
+    <div id="reg-shp">
+        
+        <div>
+            <h1>Medical Shop Registration Form</h1>
+        </div>
+
+        <div id="med-shp">
+            <form action="/join/createMed" method="POST">
+                <div>
+                    <label for="shp-name">Shop Name</label>
+                    <input type="text" name="shopName" required id="shp-name">
+                </div>
+                <div>
+                    <label for="shp-o-name">Owner Name</label>
+                    <input type="text" id="shp-o-name" name="ownerName" required>
+                </div>
+                <div>
+                    <label for="shp-mob">Shop Phone No.</label>
+                    <input type="number" id="shp-mob" name="shopPhone" required>
+                </div>
+                <div>
+                    <label for="shp-email">Shop Email</label>
+                    <input type="email" id="shp-email" name="shopEmail" required>
+                </div>
+                <div>
+                    <label for="shp-pass">Shop Password.</label>
+                    <input type="password" id="shp-pass" name="shopPass" required>
+                </div>
+                <div>
+                    <label for="shp-cnfrm-pass">Confirm Password</label>
+                    <input type="password" id="shp-cnfrm-pass" name="cnfrmPass" required>
+                </div>
+                <div>
+                    <label for="shp-o-phone">Owner Phone No.</label>
+                    <input type="number" id="shp-o-phone" name="onwerPhone" required>
+                </div>
+                <div>
+                    <label for="shp-tin">Tin No. of Shop</label>
+                    <input type="number" name="tinNum" id="shp-tin" required>
+                </div>
+                <div>
+                    <label for="shp-reg">Registration No.</label>
+                    <input type="number" id="shp-reg" name="regNo" required>
+                </div>
+                <div>
+                    <label for="shp-adrs-a">Shop Address</label>
+                    <input type="text" id="shp-adrs-a" name="shopAddress" required>
+                </div>
+                <div>
+                    <label for="shp-pin">Shop Pincode</label>
+                    <input type="number" name="shopPincode" id="shp-pin" required>     
+                </div>
+                <!-- <div> -->
+                    <input type="submit" value="Submit" id="submit">
+                <!-- </div> -->
+            </form>
+        </div>
+
+
+    </div>
+
+    <%- include('./includes/footer.ejs')%>
+</body>
+</html>

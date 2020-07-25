@@ -2,23 +2,23 @@ const passport = require('passport');
 
 const LocalStrategy = require('passport-local').Strategy;
 
-const MedUser = require('../models/medUser');
+const MedUser = require('./../../models/medReg');
 
 
 // authentication using passport
 passport.use(new LocalStrategy({
-        usernameField: 'email'
+        usernameField: 'tinNum'
     },
-    function(email, password, done){
+    function(tinNum, shopPass, done){
         // find a user and establish the identity
-        MedUser.findOne({email: email}, function(err, medUser)  {
+        MedUser.findOne({tinNum: tinNum}, function(err, medUser)  {
             if (err){
                 console.log('Error in finding medUser --> Passport');
                 return done(err);
             }
 
-            if (!medUser || medUser.password != password){
-                console.log('Invalid MedUsername/Password');
+            if (!medUser || medUser.shopPass != shopPass){
+                console.log('Invalid MedUsername/shopPass');
                 return done(null, false);
             }
 
