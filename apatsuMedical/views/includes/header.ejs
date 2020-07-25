@@ -24,12 +24,14 @@
         </ul>
         <li id="usernav">
             <% if(medUser){ %>
-                <ul><h3><a class="user" href="/log-in"><%= medUser.ownerName %></a></h3></ul>
+                <ul><h3><a class="user" href="/log-in"><%= medUser.name %></a></h3></ul>
                 <ul><h3><a class="user" href="/medUsers/sign-out">Sign-Out</a></h3></ul>
             <% }else{ %> 
-                <ul><h3><a class="user" href="/log-in">Sign-In</a></h3></ul>
+                <!-- <ul><h3><a class="user" href="/log-in">Sign-In</a></h3></ul> -->
                 <!-- <ul><h3><a class="user" href="/sign-up">Sign-Up</a></h3></ul> -->
             <% } %>
         </li>
     </div>
+
+    
 </header>

@@ -1,4 +1,4 @@
-const MedUser = require('../models/medUser');
+
 
 
 // module.exports.create = function(req,res){

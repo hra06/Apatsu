@@ -2,26 +2,28 @@ const passport = require('passport');
 
 const LocalStrategy = require('passport-local').Strategy;
 
-const MedUser = require('./../../models/medReg');
+const MedUser = require('./../models/medReg');
 
 
 // authentication using passport
 passport.use(new LocalStrategy({
-        usernameField: 'tinNum'
+        usernameField: 'email'
     },
-    function(tinNum, shopPass, done){
+    function(email, password, done){
         // find a user and establish the identity
-        MedUser.findOne({tinNum: tinNum}, function(err, medUser)  {
+
+        // console.log('Harsh Agarwal')
+        MedUser.findOne({email: email}, function(err, medUser)  {
             if (err){
                 console.log('Error in finding medUser --> Passport');
                 return done(err);
             }
 
-            if (!medUser || medUser.shopPass != shopPass){
+            if (!medUser || medUser.password != password){
                 console.log('Invalid MedUsername/shopPass');
                 return done(null, false);
             }
-
+            // console.log(medUser)
             return done(null, medUser);
         });
     }
@@ -61,9 +63,12 @@ passport.checkAuthentication = function(req,res,next){
 
 passport.setAuthenticatedUser = function(req,res,next){
     if(req.isAuthenticated()){
+        // console.log(req.medUser)
         res.locals.medUser = req.medUser;
+        // console.log(req.medUser)
     }
     else{
+        // console.log('not set')
         res.locals.medUser = null;
     }
     next();

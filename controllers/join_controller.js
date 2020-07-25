@@ -9,7 +9,7 @@ module.exports.medReg = function(req,res){
 module.exports.createMed = function(req,res){
     req.body.approved = 'no'
     console.log(req.body)
-    if(req.body.shopPass != req.body.cnfrmPass){
+    if(req.body.password != req.body.cnfrmPass){
         console.log('Password does not match with confirm Password');
         return res.redirect('back');
     }else{
