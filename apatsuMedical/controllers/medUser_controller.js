@@ -22,11 +22,11 @@
 
 // }
 
-module.exports.profile = function(req,res){
-    return res.render('dash',{
-        title:'Profile'
-    })
-}
+// module.exports.profile = function(req,res){
+//     return res.render('dash',{
+//         title:'Profile'
+//     })
+// }
 
 
 module.exports.createSession = function(req,res){

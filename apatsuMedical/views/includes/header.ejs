@@ -23,8 +23,8 @@
             <li><a href="#">Contact Us</a></li>
         </ul>
         <li id="usernav">
-            <% if(medUser){ %>
-                <ul><h3><a class="user" href="/log-in"><%= medUser.name %></a></h3></ul>
+            <% if(user){ %>
+                <ul><h3><a class="user" href="/log-in"><%= user.ownerName %></a></h3></ul>
                 <ul><h3><a class="user" href="/medUsers/sign-out">Sign-Out</a></h3></ul>
             <% }else{ %> 
                 <!-- <ul><h3><a class="user" href="/log-in">Sign-In</a></h3></ul> -->

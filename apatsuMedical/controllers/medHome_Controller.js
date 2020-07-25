@@ -2,7 +2,7 @@
 module.exports.home = function(req,res){
     // console.log(req);
     // console.log(res.locals)
-    return res.render('login',{title:'Login | Medical'});
+    return res.render('index',{title:'Shop | Medical'});
 }
 
 // Render the team Page
@@ -16,13 +16,13 @@ module.exports.home = function(req,res){
 // } 
 
 // Render the SignUp Page
-// module.exports.login = function(req,res){
-//     if(req.isAuthenticated()){
-//         return res.redirect('/users/profile');
-//     }
+module.exports.login = function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/');
+    }
 
-//     return res.render('login',{title:'Sign-In'})
-// }
+    return res.render('login',{title:'LogIn | Medical'})
+}
 
 // Render the SignUp Page
 // module.exports.logup = function(req,res){
