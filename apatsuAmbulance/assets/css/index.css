@@ -2,6 +2,10 @@
 /* Font Rule */  /*font-family: 'Manrope', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
+a{
+    text-decoration: none;
+    color: black;
+}
 
 body{
     font-family: 'Manrope', sans-serif;
@@ -14,6 +18,8 @@ body{
     /* background-color: rgba(0, 0, 0, 0.5); */
     background-size: 100vw;
 }
+
+
 
 header {
     margin: 0px;
@@ -153,72 +159,66 @@ header .two a:hover{
 
 
 
-/* Hospital form */
 
-#reg-amb{
-    padding-top: 3vh;
-    margin-top: 3vh;
-    padding-bottom: 3vh;
-    /* margin-bottom: 2vh;     */
-    /* padding: 5vh 5vw; */
-    background-color: white;
-    /* border-radius: 3rem; */
-    /* width: 50vw; */
-    /* margin-left: 25vw; */
+.timeline{
+    margin-top: 10vh;
+    margin-left: 12.5%;
+    width: 75%;
+    /* border: 2px solid black; */
+}
+
+
+.timeline-box{
+    color: black;
+    position: relative;
+    margin: 5px;
+    width: 40%;
+    left: 5%;
+    min-height: 150px;
+    /* border: 2px solid black; */
+    padding: 5px;
+}
+
+.timeline-box:nth-child(2n-1){
+    text-align: right;
+} 
+
+.timeline-box:nth-child(2n){
+    left: 53%;
+} 
+
+.timeline-divider{
+    position: absolute; 
+    height: 75%;
+    width: 0%;
+    border: 3px dashed black;
+    display:flex;
+    top: 10%;
+    left: 50%;
+}
+
+.timeline h1{
+    font-family: 'Manrope', sans-serif;
+    /* color: white;     */
+    color: #0c96a8;
     text-align: center;
+    font-weight: bolder;
+    margin-bottom: 5vh;
 }
 
-#med-amb label{
-    display: inline-block;
-    width: 11rem;
-    text-align: left;
-    font-weight: bold;
-    /* background-color: thistle; */
-    padding-top: 2vh;
+.timeline h4{
+    color: #f95759;
 }
 
-#med-amb div input{
-    width: 28vw;
-    border: none;
-    outline: none;
-    background: none;
-    border-bottom: 1px solid black;
-    color: black;
+.timeline-box h4{
+    font-size: 1.6rem;
+}
+.timeline-box p{
+    font-size: 1.3rem;
 }
 
 
 
-#med-amb ul{
-    padding-left: 0px;
-    margin-left: 0px;
-    list-style-type: none;
-}
-
-
-/* #extra{
-    padding-left: 0;
-    margin-left: 0;
-} */
-
-#submit{
-    width: 40vw;
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 0.5rem 0;
-    color: red;
-    border: 1px solid red;
-    border-radius: 2rem;
-}
-#submit:hover{
-    transition: ease-in-out;
-    transition-delay: 50ms;
-    background-color: red;
-    color: black;
-}
-/* Hospital End */
 
 /* Footer */
 footer{    
@@ -261,3 +261,4 @@ div h6{
     color: white;
     background-color: #474b4f;
 }
+
