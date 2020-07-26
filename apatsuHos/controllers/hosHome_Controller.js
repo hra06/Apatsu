@@ -1,6 +1,6 @@
 // Render the home/main page
 module.exports.home = function(req,res){
-    return res.render('index',{title:'Ambulance'});
+    return res.render('index',{title:'Hospitals'});
 }
 
 // Render the SignUp Page
