@@ -33,6 +33,16 @@ module.exports.createSession = function(req,res){
     return res.redirect('/');
 }
 
+module.exports.shop = function(req,res){
+    if(res.locals.user.approved == 'no'){
+        return res.render('notApproved',{title:'Medical Shop'})
+    }
+    else{
+        return res.send('Shop Open for Service')
+    }
+}
+
+
 module.exports.destroySession = function(req,res){
     req.logout();
     return res.redirect('/');

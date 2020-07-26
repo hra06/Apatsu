@@ -7,12 +7,14 @@ const router = express.Router();
 // use passport as a middleware to authenticate
 router.post('/create-session', passport.authenticate(
     'local',
-    {failureRedirect:'/log-in'}
+    {failureRedirect:'/login'}
 ) ,hosUserController.createSession);
 
 
 // Destroy the current session
 router.get('/sign-out',hosUserController.destroySession);
+
+router.get('/bookings',passport.checkAuthentication,hosUserController.bookings);
 
 
 

@@ -12,9 +12,10 @@ const router = express.Router();
 // use passport as a middleware to authenticate
 router.post('/create-session', passport.authenticate(
     'local',
-    {failureRedirect:'/log-in'}
+    {failureRedirect:'/login'}
 ) ,medUserController.createSession);
 
+router.get('/shop',passport.checkAuthentication,medUserController.shop);
 
 
 router.get('/sign-out',medUserController.destroySession);
