@@ -10,6 +10,7 @@ router.get('/team',homeController.team);
 router.get('/log-in',homeController.login)
 router.get('/sign-up',homeController.logup);
 router.get('/services',homeController.services);
+router.get('/joinUs',homeController.joinUs);
 
 router.use('/users', require('./users'))
 router.use('/service', require('./services'))

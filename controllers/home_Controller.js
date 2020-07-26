@@ -9,6 +9,11 @@ module.exports.team = function(req,res){
     return res.render('contact',{title:'Team'})
 }
 
+// Join Us Page
+module.exports.joinUs = function(req,res){
+    return res.render('join',{title:'Join Team'})
+}
+
 //Rendering the service page
 module.exports.services = function(req,res){
     return res.render('services',{title:'Services'})
