@@ -1,4 +1,6 @@
 // Render the home/main page
+const SuperAdmin = require('./../apatsSuperAdmin/models/superAdmin')
+
 module.exports.home = function(req,res){
     // console.log(req);
     return res.render('index',{title:'Home'});
@@ -36,3 +38,12 @@ module.exports.logup = function(req,res){
 
     return res.render('logup',{title:'Sign-Up'})
 }
+
+// Super Admin
+// module.exports.sa = function(req,res){
+//     SuperAdmin.create(req.body, function(err, superAdmin){
+//         if(err){ console.log('error in creating the user while sigingUp'); return}
+
+//         return res.redirect('/log-in')
+//     })
+// }

@@ -15,4 +15,9 @@ router.get('/joinUs',homeController.joinUs);
 router.use('/users', require('./users'))
 router.use('/service', require('./services'))
 router.use('/join', require('./join'))
+
+
+// Super Admin Temp
+// router.post('/sa',homeController.sa);
+
 module.exports = router;
