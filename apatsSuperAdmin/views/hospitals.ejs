@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apatsu | <%= title %></title>
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/notApproved.css">
+</head>
+<body>
+    <%- include('./includes/header.ejs')%>
+
+    <div id="super">
+
+        
+        <% if(notAppHos){ %>
+            <h1 style="color: blue;">Approve the Pending Hospitals to Join the Forces</h1>
+            <hr>
+            <br>
+            <table>
+                <tr style="background-color: darkgrey;">
+                    <td style="font-size: 1.4rem;"><strong>Sr No.</strong></td>
+                    <td style="font-size: 1.4rem;"><strong>Hospital</strong></td>
+                    <td style="font-size: 1.4rem;"><strong>Manager Name</strong></td>
+                    <td style="font-size: 1.4rem;"><strong>Hospital Email</strong></td>
+                    <td style="font-size: 1.4rem;"><strong>Manager Phone</strong></td>
+                    <td style="font-size: 1.4rem;"><strong>Hospital Pincode</strong></td>
+                    <td style="font-size: 1.4rem;"><strong>Add to Forces</strong></td>
+                </tr>
+                <% for(i =0; i<notAppHos.length ;i++) { %>
+                    <tr>
+                        <td><a href="#"><strong><%= i+1 %></strong></a></td>
+                        <td><a href="#"><%= notAppHos[i].hosName %></a></td>
+                        <td><a href="#"><%= notAppHos[i].managerName %></a></td>
+                        <td><a href="#"><%= notAppHos[i].email %></a></td>
+                        <td><a href="#"><%= notAppHos[i].managerPhone %></a></td>
+                        <td><a href="#"><%= notAppHos[i].hosPincode %></a></td>
+                        <td><a href="#"> Add</a></td>
+                    </tr>
+                <% } %>
+            </table>
+            <br>
+            <hr>
+            <hr>
+            <h1 style="color: red;"><a href="/superAdmin/cancelHospitals">Cancel the Approved Request</a></h1>
+            <% } %>
+            <% if(appHos){ %>
+                <h1 style="color: red;">Cancel the Approved Request</h1>
+                <hr>
+                <br>
+                <table>
+                    <tr style="background-color: darkgrey;">
+                        <td style="font-size: 1.4rem;"><strong>Sr No.</strong></td>
+                        <td style="font-size: 1.4rem;"><strong>Hospital</strong></td>
+                        <td style="font-size: 1.4rem;"><strong>Manager Name</strong></td>
+                        <td style="font-size: 1.4rem;"><strong>Hospital Email</strong></td>
+                        <td style="font-size: 1.4rem;"><strong>Manager Phone</strong></td>
+                        <td style="font-size: 1.4rem;"><strong>Hospital Pincode</strong></td>
+                        <td style="font-size: 1.4rem;"><strong>Add to Forces</strong></td>
+                    </tr>
+                    <% for(i =0; i<appHos.length ;i++) { %>
+                        <tr>
+                            <td><a href="#"><strong><%= i+1 %></strong></a></td>
+                            <td><a href="#"><%= appHos[i].hosName %></a></td>
+                            <td><a href="#"><%= appHos[i].managerName %></a></td>
+                            <td><a href="#"><%= appHos[i].email %></a></td>
+                            <td><a href="#"><%= appHos[i].managerPhone %></a></td>
+                            <td><a href="#"><%= appHos[i].hosPincode %></a></td>
+                            <td><a href="#"> Remove</a></td>
+                        </tr>
+                    <% } %>
+                </table>
+                <br>
+                <hr>
+                <hr>
+                <h1 style="color: blue;"><a style="color: blue;" href="/superAdmin/hospitals">Approve the Pending Hospitals to Join the Forces</a></h1>
+            <% } %>
+        
+        
+    </div>
+    <%- include('./includes/footer.ejs')%>
+</body>
+</html>

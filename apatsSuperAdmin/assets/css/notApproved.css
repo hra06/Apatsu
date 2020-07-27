@@ -151,78 +151,40 @@ header .two a:hover{
     font-size: 1.4rem;
 }
 
-
-/* Ambulance Reg */
-
-#reg-amb{
-    min-height: 60vh;
-    /* padding: 5vh 5vw; */
+/* not Approved List Start */
+#super{
+    min-height: 70vh;
     background-color: white;
-    /* border-radius: 3rem; */
-    /* width: 50vw; */
-    /* margin-left: 25vw; */
-    text-align: center;
-    padding-bottom: 5vh;
 }
-
-h2{
-    padding-top: 5vh;
-}
-
-/* #med-amb{
-    margin-top: 5vh;
-} */
-
-#med-amb label{
-    display: inline-block;
-    width: 11rem;
-    text-align: left;
-    font-weight: bold;
-    /* background-color: thistle; */
+#super h1{
     padding-top: 2vh;
+    padding-bottom: 1vh;
+    text-align: center;
 }
 
-#med-amb div input{
-    width: 28vw;
-    border: none;
-    outline: none;
-    background: none;
-    border-bottom: 1px solid black;
-    color: black;
+table{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-left: 6vw;
+    padding-right: 6vw;
 }
 
-#med-amb ul{
-    padding-left: 0px;
-    margin-left: 0px;
-    list-style-type: none;
+tr{
+    background-color: cornsilk;
+    width: 12vw;
 }
 
-
-/* #extra{
-    padding-left: 0;
-    margin-left: 0;
-} */
-
-#submit{
-    width: 40vw;
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 0.5rem 0;
+a{
+    text-decoration: none;
     color: red;
-    border: 1px solid red;
-    border-radius: 2rem;
-}
-#submit:hover{
-    transition: ease-in-out;
-    transition-delay: 50ms;
-    background-color: red;
-    color: black;
 }
 
-/* Ambulannce Reg Ends */
+td a{
+    text-decoration: none;
+    color: black;
+}
+/* not Approved List Ends */
 
 
 /* Footer */
