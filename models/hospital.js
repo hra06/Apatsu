@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ambulanceSchema = new mongoose.Schema({
+const hospitalSchema = new mongoose.Schema({
     patinentName:{
         type:String,
         required:true,
@@ -29,14 +29,6 @@ const ambulanceSchema = new mongoose.Schema({
         type:Number,
         required:true,
     },
-    patientHospital:{
-        type:String,
-        required: true
-    },
-    patientHospitalPincode:{
-        type: Number,
-        required: true
-    },
     requestApproved:{
         type:String,
         required:true
@@ -46,6 +38,6 @@ const ambulanceSchema = new mongoose.Schema({
 });
 
 
-const Ambulance = mongoose.model('Ambulance',ambulanceSchema);
+const Hospital = mongoose.model('Hospital',hospitalSchema);
 
-module.exports = Ambulance;
+module.exports = Hospital;

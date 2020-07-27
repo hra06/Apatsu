@@ -91,6 +91,10 @@ const medicineSchema = new mongoose.Schema({
     },
     quantity10:{
         type:Number
+    },
+    requestApproved:{
+        type:String,
+        required:true
     }  
 },{
     timestamps: true

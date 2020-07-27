@@ -230,16 +230,16 @@ amb-pat-gen{
     width: 1vh;
 }
 
-form div ul li input{
-    width:28vw;
-}
-
 /* #qty1 , #qty2 , #qty3 , #qty4 , #qty5 , #qty6 , #qty7 , #qty8 , #qty9 , #qty10{
     width: 3rem;
 } */
 #submit{
     width: 39vw;
 }
+form div ul li input{
+    width:28vw;
+}
+
 
 /* Ambulance Form Ends */
 
