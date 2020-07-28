@@ -17,5 +17,12 @@ router.get('/sign-out',ambUserController.destroySession);
 
 router.get('/ambulance',passport.checkAuthentication,ambUserController.ambulance);
 
+// Open the Particular Page
+router.get('/order/:id',passport.checkAuthentication,ambUserController.order)
+
+// Accept BOoking
+router.post('/accept/:id',passport.checkAuthentication,ambUserController.accept)
+
+
 
 module.exports = router;

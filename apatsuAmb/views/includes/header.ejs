@@ -9,18 +9,11 @@
     </div>
     <div class="two">
         <ul>
-            <li><a href="/ambusers/ambulance">Ambulance</a></li>
-            <!-- <li>
-                <button class="dropbtn">Services</button>
-                <div class="dropdown-content">
-                    <a href="#">Medicine Delivery</a>
-                    <a href="#">Self Assesment</a>
-                    <a href="#">Ambulance</a>
-                    <a href="#">Hospitals</a>
-                </div>
-            </li> -->
-            <!-- <li><a href="#">Self Assesment</a></li> -->
-            <li><a href="#">Contact Us</a></li>
+            <% if(user){ %>
+                <li><a href="/ambusers/ambulance">Ambulance</a></li>
+                <li><a href="#">Current Booking</a></li>
+                <li><a href="#">Previos Bookings</a></li>
+            <% } %>
         </ul>
         <li id="usernav">
             <% if(user){ %>

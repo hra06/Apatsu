@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apatsu | <%= title %></title>
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/ambu.css">
+</head>
+<body>
+    <%- include('./includes/header.ejs')%>
+
+    <div id="super">
+            <% if(order){ %>
+                <h1 id="title" >Your Shop is Open to Take Orders</h1>
+                <br>            
+                <table>
+                    <tr style="background-color: darkgrey;">
+                        <th style="font-size: 1.4rem;"><strong>Patient Name</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Phone Number</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Email</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Age</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Pincode</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Gender</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Order Status</strong></th>
+                    </tr>                                    
+                    <tr> 
+                        <th><%= order.patinentName %></th>
+                        <td><%= order.patientMob %></td>
+                        <td><%= order.patientEmail %></td>
+                        <td><%= order.patientAge %></td>
+                        <td><%= order.patientPincode %></td>
+                        <td><%= order.patientSex %></td>
+                        <td><%= order.orderStatus %></td>
+                    </tr>                    
+                </table>
+                                
+                <table style="margin: auto;margin-top: 3vw;">
+                    <caption><b>Patient Pick Up Address</b></caption>
+                    <tr style="background-color: darkgrey;">
+                        <th style="width: auto;padding:0.5vh 2vw;">Address</th>
+                        <th style="width: auto;padding:0.5vh 2vw;">Pincode</th>
+                    </tr>
+                    <tr>
+                        <td style="width: auto;padding:0.5vh 2vw;"> <%= order.patientAddress %></td>
+                        <td style="width: auto;padding:0.5vh 2vw;"> <%= order.patientPincode %></td>
+                    </tr>
+                </table>
+                <table style="margin: auto;margin-top: 3vw;">
+                    <caption><b>Patient Destination Address</b></caption>
+                    <tr style="background-color: darkgrey;">
+                        <th style="width: auto;padding:0.5vh 2vw;">Hospital Name</th>
+                        <th style="width: auto;padding:0.5vh 2vw;">Hospital Address</th>
+                        <th style="width: auto;padding:0.5vh 2vw;">Hospital Pincode</th>
+                    </tr>
+                    <tr>
+                        <td style="width: auto;padding:0.5vh 2vw;"> <%= order.patientHospital %></td>
+                        <td style="width: auto;padding:0.5vh 2vw;"> <%= order.patientHospitalAddress %></td>
+                        <td style="width: auto;padding:0.5vh 2vw;"> <%= order.patientHospitalPincode %></td>
+                    </tr>
+                </table>
+                
+                <br><br>
+                <% if(order.requestApproved == 'no'){ %>
+                    <form action="/ambusers/accept/<%= order.id %>" method="POST" style="text-align: center;">
+                        <input type="submit" name="approved" value="Approve" style="width: 20vw;; height: 4vh; font-weight: bold; font-size: 1.5rem; letter-spacing: .1em; border: none; background-color: #054a4a; color: white;">
+                    </form>
+                <% }else if(order.requestApproved == 'Yes' && order.orderStatus == 'Confirmed'){ %>
+                        <p style="width: 20vw;; height: 4vh; font-weight: bold; font-size: 1.5rem; letter-spacing: .1em; border: none; background-color: #054a4a; color: white;text-align: center; margin: auto;">Order Confirmed</p>
+                <% } %>
+                <br><br>
+            <% } %> 
+    </div>
+
+    <%- include('./includes/footer.ejs')%>
+</body>
+</html>
