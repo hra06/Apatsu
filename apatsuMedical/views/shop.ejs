@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apatsu | <%= title %></title>
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/shop.css">
+</head>
+<body>
+    <%- include('./includes/header.ejs')%>
+
+    <div id="super">
+            <h1 id="title" >Your Shop is Open to Take Orders</h1>
+            <br>
+            <table>
+                <tr style="background-color: darkgrey;">
+                    <th style="font-size: 1.4rem;"><strong>Sr No.</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Patient Name.</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Phone Number</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Email</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Age</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Pincode</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Order Status</strong></th>
+                    
+                </tr>                
+                <% for( i =0 ; i< myShop.length ; i++ ){ %>                    
+                    <tr>                 
+                        <th><a href="/medusers/order/<%= myShop[i].id %>"><%= i+1 %></a></th>
+                        <td><a href="/medusers/order/<%= myShop[i].id %>"><%= myShop[i].patientName %></a></td>
+                        <td><a href="/medusers/order/<%= myShop[i].id %>"><%= myShop[i].patientMobile %></a></td>
+                        <td><a href="/medusers/order/<%= myShop[i].id %>"><%= myShop[i].patientEmail %></a></td>
+                        <td><a href="/medusers/order/<%= myShop[i].id %>"><%= myShop[i].patientAge %></a></td>
+                        <td><a href="/medusers/order/<%= myShop[i].id %>"><%= myShop[i].patientPincode %></a></td>
+                        <td><a href="/medusers/order/<%= myShop[i].id %>"><%= myShop[i].orderStatus %></a></td>
+                    </tr>                    
+                <% } %>
+            </table>       
+    </div>
+    <%- include('./includes/footer.ejs')%>
+</body>
+</html>

@@ -22,9 +22,12 @@ module.exports.hospital = function(req,res){
 
 module.exports.medicineOrder = function(req,res){
     req.body.requestApproved = 'no';
+    req.body.user = req.user.id
+    req.body.orderStatus = 'Waiting'
     Medicine.create(req.body, function(err,medicine){
         if(err){
             console.log('error in ordering the medicine');
+            return('back');
         }
         
         return res.redirect('/')

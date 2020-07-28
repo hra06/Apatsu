@@ -95,6 +95,20 @@ const medicineSchema = new mongoose.Schema({
     requestApproved:{
         type:String,
         required:true
+    },
+    user:{
+        type:mongoose.Schema.Types.ObjectId,
+        required:true
+    },
+    orderStatus:{
+        type:String,
+        required:true
+    },
+    sellerId:{
+        type: mongoose.Schema.Types.ObjectId,
+    },
+    dispatchPh:{
+        type:Number
     }  
 },{
     timestamps: true

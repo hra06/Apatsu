@@ -2,10 +2,6 @@
 /* Font Rule */  /*font-family: 'Manrope', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
-a{
-    text-decoration: none;
-    color: black;
-}
 
 body{
     font-family: 'Manrope', sans-serif;
@@ -13,13 +9,11 @@ body{
     padding: 0px;
     border-color: white;
     /* background-image: url('./images/dark-hero-1.jpg'); */
-    background-image: url('https://images.unsplash.com/photo-1584308878768-57d3387b1882?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1360&q=80');
+    background-image: url('http://medicare.bold-themes.com/surgery/wp-content/uploads/sites/16/2015/12/dark-hero-1.jpg');
     background-repeat: no-repeat;
     /* background-color: rgba(0, 0, 0, 0.5); */
     background-size: 100vw;
 }
-
-
 
 header {
     margin: 0px;
@@ -158,66 +152,33 @@ header .two a:hover{
 }
 
 
+/* Shop  Order */
+ #super{
+     min-height: 61.7vh;
+     background-color: white;
+ }
+ 
+ #title{
+     text-align: center;
+     color: #054a4a;
+     font-size: 2.5rem;
+     padding-top: 2vh;
+     /* border-bottom: 1px solid #054a4a; */
+ }
 
-
-.timeline{
-    margin-top: 10vh;
-    margin-left: 12.5%;
-    width: 75%;
-    /* border: 2px solid black; */
+table{
+     margin-left: 6vw;
 }
-
-
-.timeline-box{
-    color: black;
-    position: relative;
-    margin: 5px;
-    width: 40%;
-    left: 5%;
-    min-height: 150px;
-    /* border: 2px solid black; */
-    padding: 5px;
-}
-
-.timeline-box:nth-child(2n-1){
-    text-align: right;
-} 
-
-.timeline-box:nth-child(2n){
-    left: 53%;
-} 
-
-.timeline-divider{
-    position: absolute; 
-    height: 75%;
-    width: 0%;
-    border: 3px dashed black;
-    display:flex;
-    top: 10%;
-    left: 50%;
-}
-
-.timeline h1{
-    font-family: 'Manrope', sans-serif;
-    /* color: white;     */
-    color: #0c96a8;
+td , th{
+    width: 12vw;
     text-align: center;
-    font-weight: bolder;
-    margin-bottom: 5vh;
 }
 
-.timeline h4{
-    color: #f95759;
+a{
+    text-decoration: none;
+    color: black;
 }
-
-.timeline-box h4{
-    font-size: 1.6rem;
-}
-.timeline-box p{
-    font-size: 1.3rem;
-}
-
-
+/* Shop Order */
 
 
 /* Footer */
@@ -261,4 +222,3 @@ div h6{
     color: white;
     background-color: #474b4f;
 }
-

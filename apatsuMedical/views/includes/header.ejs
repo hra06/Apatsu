@@ -20,11 +20,13 @@
                 </div>
             </li> -->
             <!-- <li><a href="#">Self Assesment</a></li> -->
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="/medusers/confirmed">Confirmed Orders</a></li>
+            <li><a href="/medusers/dispatched">Dispatched Orders</a></li>
+            <li><a href="/medusers/delivered">Delivered Orders</a></li>
         </ul>
         <li id="usernav">
             <% if(user){ %>
-                <ul><h3><a class="user" href="/log-in"><%= user.ownerName %></a></h3></ul>
+                <ul><h3><%= user.ownerName %></h3></ul>
                 <ul><h3><a class="user" href="/medUsers/sign-out">Sign-Out</a></h3></ul>
             <% }else{ %> 
                 <!-- <ul><h3><a class="user" href="/log-in">Sign-In</a></h3></ul> -->
