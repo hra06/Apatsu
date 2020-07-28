@@ -35,6 +35,8 @@ module.exports.cancelStores = async function(req,res){
         let appStores = await MedReg.find({approved :'yes'})
         .sort('-createdAt');
 
+        // console.log(appStores)
+
         return res.render('stores',{
             title:'Cancel Medical Stores',
             notAppStores :'',
@@ -74,6 +76,7 @@ module.exports.cancelAmbulances = async function(req,res){
         .sort('-createdAt');
 
         console.log(appAmb)
+        // console.log('appAmb Harsh as Super Admin')
 
         return res.render('ambulances',{
             title:'Cancel Ambulances',
@@ -110,10 +113,11 @@ module.exports.hospitals = async function(req,res){
 
 module.exports.cancelHospitals = async function(req,res){
     try{
-        let appHos = await AmbReg.find({approved :'yes'})
+        let appHos = await HosReg.find({approved :'yes'})
         .sort('-createdAt');
 
         console.log(appHos)
+        console.log('appAmb Harsh as Super Admin')
 
         return res.render('hospitals',{
             title:'Cancel Ambulances',
@@ -122,7 +126,7 @@ module.exports.cancelHospitals = async function(req,res){
         })
 
     }catch(err){
-        console.log('Error Super Admin Cancel Ambulances');
+        console.log('Error Super Admin Cancel Hospitals');
         console.log(err)
     }    
 }

@@ -19,23 +19,25 @@
             <br>
             <table>
                 <tr style="background-color: darkgrey;">
-                    <td style="font-size: 1.4rem;"><strong>Sr No.</strong></td>
-                    <td style="font-size: 1.4rem;"><strong>Shop Name</strong></td>
-                    <td style="font-size: 1.4rem;"><strong>Owner Name</strong></td>
-                    <td style="font-size: 1.4rem;"><strong>Email</strong></td>
-                    <td style="font-size: 1.4rem;"><strong>Owner Phone</strong></td>
-                    <td style="font-size: 1.4rem;"><strong>Shop Pincode</strong></td>
-                    <td style="font-size: 1.4rem;"><strong>Add to Forces</strong></td>
+                    <th style="font-size: 1.4rem;"><strong>Sr No.</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Shop Name</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Owner Name</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Email</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Owner Phone</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Shop Pincode</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Add to Forces</strong></th>
                 </tr>
                 <% for(i =0; i<notAppStores.length ;i++) { %>
                     <tr>
-                        <td><a href="#"><strong><%= i+1 %></strong></a></td>
-                        <td><a href="#"><%= notAppStores[i].shopName %></a></td>
-                        <td><a href="#"><%= notAppStores[i].ownerName %></a></td>
-                        <td><a href="#"><%= notAppStores[i].email %></a></td>
-                        <td><a href="#"><%= notAppStores[i].onwerPhone %></a></td>
-                        <td><a href="#"><%= notAppStores[i].shopPincode %></a></td>
-                        <td><a href="#"> Add</a></td>
+                        <form action="/update/approveStore/<%= notAppStores[i].id %>" method="post">
+                            <td><a href="#"><strong><%= i+1 %></strong></a></td>
+                            <td><a href="#"><%= notAppStores[i].shopName %></a></td>
+                            <td><a href="#"><%= notAppStores[i].ownerName %></a></td>
+                            <td><a href="#"><%= notAppStores[i].email %></a></td>
+                            <td><a href="#"><%= notAppStores[i].onwerPhone %></a></td>
+                            <td><a href="#"><%= notAppStores[i].shopPincode %></a></td>
+                            <td><button type="submit">Add to Team</button></td>
+                        </form>
                     </tr>
                 <% } %>
             </table>
@@ -50,23 +52,25 @@
                 <br>
                 <table>
                     <tr style="background-color: darkgrey;">
-                        <td style="font-size: 1.4rem;"><strong>Sr No.</strong></td>
-                        <td style="font-size: 1.4rem;"><strong>Shop Name</strong></td>
-                        <td style="font-size: 1.4rem;"><strong>Owner Name</strong></td>
-                        <td style="font-size: 1.4rem;"><strong>Email</strong></td>
-                        <td style="font-size: 1.4rem;"><strong>Owner Phone</strong></td>
-                        <td style="font-size: 1.4rem;"><strong>Shop Pincode</strong></td>
-                        <td style="font-size: 1.4rem;"><strong>Add from Forces</strong></td>
+                        <th style="font-size: 1.4rem;"><strong>Sr No.</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Shop Name</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Owner Name</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Email</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Owner Phone</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Shop Pincode</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Add from Forces</strong></th>
                     </tr>
-                    <% for(i =0; i<notAppStores.length ;i++) { %>
+                    <% for(i =0; i<appStores.length ;i++) { %>
                         <tr>
-                            <td><a href="#"><strong><%= i+1 %></strong></a></td>
-                            <td><a href="#"><%= appStores[i].shopName %></a></td>
-                            <td><a href="#"><%= appStores[i].ownerName %></a></td>
-                            <td><a href="#"><%= appStores[i].email %></a></td>
-                            <td><a href="#"><%= appStores[i].onwerPhone %></a></td>
-                            <td><a href="#"><%= appStores[i].shopPincode %></a></td>
-                            <td><a href="#"> Remove</a></td>
+                            <form action="/update/cancelStore/<%= appStores[i].id %>" method="post">
+                                <td><a href="#"><strong><%= i+1 %></strong></a></td>
+                                <td><a href="#"><%= appStores[i].shopName %></a></td>
+                                <td><a href="#"><%= appStores[i].ownerName %></a></td>
+                                <td><a href="#"><%= appStores[i].email %></a></td>
+                                <td><a href="#"><%= appStores[i].onwerPhone %></a></td>
+                                <td><a href="#"><%= appStores[i].shopPincode %></a></td>
+                                <td><button type="submit">Remove From Team</button></td>
+                            </form>
                         </tr>
                     <% } %>
                 </table>

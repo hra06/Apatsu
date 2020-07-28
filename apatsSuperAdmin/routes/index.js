@@ -8,5 +8,6 @@ const router = express.Router();
 router.get('/',passport.checkAuthentication,superAdminHomeController.home)
 router.get('/login',superAdminHomeController.login);
 
-router.use('/superAdmin', require('./superAdminUsers'))
+router.use('/superAdmin', require('./superAdminUsers'));
+router.use('/update', require('./update'))
 module.exports = router;

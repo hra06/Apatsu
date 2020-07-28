@@ -170,9 +170,12 @@ table{
     padding-right: 6vw;
 }
 
-tr{
+td{
     background-color: cornsilk;
     width: 12vw;
+}
+th{
+    background-color:cadetblue;
 }
 
 a{
@@ -183,6 +186,16 @@ a{
 td a{
     text-decoration: none;
     color: black;
+}
+
+button{
+    width: 12vw;
+    background-color: crimson;
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: cornsilk;
 }
 /* not Approved List Ends */
 
