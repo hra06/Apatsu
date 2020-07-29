@@ -23,6 +23,10 @@ router.get('/order/:id',passport.checkAuthentication,ambUserController.order)
 // Accept BOoking
 router.post('/accept/:id',passport.checkAuthentication,ambUserController.accept)
 
+// current Booking currentBooking
+router.get('/currentBooking',passport.checkAuthentication,ambUserController.currentBooking)
 
+// previousBookings
+router.get('/previousBookings',passport.checkAuthentication,ambUserController.previousBookings)
 
 module.exports = router;

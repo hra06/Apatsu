@@ -14,24 +14,45 @@
 
         <br><br>
         
-        <div>
-            <h2>Super Admin is a good guy</h2>
-        </div>
+        <% if(status == 'notApproved'){ %>
+            <div>
+                <h2>Super Admin is a good guy</h2>
+            </div>
 
 
 
-        <div>
-            <h2>Your ambulance has not been approved. <br> Please wait we are working on it. <br>Thank You</h2>
-        </div>
+            <div>
+                <h2>Your ambulance has not been approved. <br> Please wait we are working on it. <br>Thank You</h2>
+            </div>
 
-        <br><br><br>
-        <div>
-            <h1>
-                Apatsu
-                <br>
-                At Time of Emergencies
-            </h1>
-        </div>
+            <br><br><br>
+            <div>
+                <h1>
+                    Apatsu
+                    <br>
+                    At Time of Emergencies
+                </h1>
+            </div>
+        <% }else if(status == 'booked'){ %>
+            <div>
+                <h2>Super Admin is a good guy</h2>
+            </div>
+
+
+
+            <div>
+                <h2>Your ambulance is already booked. <br> Please Finish your previous booking to take more orders <br>Thank You</h2>
+            </div>
+
+            <br><br><br>
+            <div>
+                <h1>
+                    Apatsu
+                    <br>
+                    At Time of Emergencies
+                </h1>
+            </div>
+        <% } %>
     </div>
         
 

@@ -22,12 +22,12 @@ module.exports.hospital = function(req,res){
 
 module.exports.medicineOrder = function(req,res){
     req.body.requestApproved = 'no';
-    req.body.user = req.user.id
-    req.body.orderStatus = 'Waiting'
+    req.body.user = req.user.id;
+    req.body.orderStatus = 'Waiting';
     Medicine.create(req.body, function(err,medicine){
         if(err){
             console.log('error in ordering the medicine');
-            return('back');
+            return res.redirect('back');
         }
         
         return res.redirect('/')
@@ -37,9 +37,13 @@ module.exports.medicineOrder = function(req,res){
 
 module.exports.ambulanceCall = function(req,res){
     req.body.requestApproved = 'no';
+    req.body.user = req.user.id;
+    req.body.orderStatus = 'Waiting';
     Ambulance.create(req.body, function(err,ambulance){
         if(err){
             console.log('Error in Calling the Ambulance');
+            console.log(err);
+            return res.redirect('back');
         }
         // console.log(req.body)
         

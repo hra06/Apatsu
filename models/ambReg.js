@@ -49,6 +49,10 @@ const ambRegSchema = new mongoose.Schema({
     approved:{
         type:String,
         required:true
+    },
+    currentStatus:{
+        type:String,
+        required:true
     }
 },{
     timestamps: true

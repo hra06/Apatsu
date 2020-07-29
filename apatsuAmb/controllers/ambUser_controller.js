@@ -12,7 +12,9 @@ module.exports.destroySession = function(req,res){
 // Open Booking Page
 module.exports.ambulance =async function(req,res){
     if(res.locals.user.approved == 'no'){
-        return res.render('notApproved',{title:'Medical Ambulance'})
+        return res.render('notApproved',{title:'Medical Ambulance',status :'notApproved'})
+    }else if(req.user.currentStatus == 'booked'){
+        return res.render('notApproved',{title:'Medical Ambulance' , status :'booked'})
     }
     else{
         try{
@@ -35,15 +37,20 @@ module.exports.ambulance =async function(req,res){
 module.exports.order = async function(req,res){
     try{
         let order = await Ambulances.findById(req.params.id);
-        // console.log(order)
-        return res.render('orderAmbulance',{
-            title: 'Order Details',
-            order: order
-        })
+        console.log('Inside if of open particular booking')
+        if(order.sellerId == req.user.id || order.sellerId == ''){
+            return res.render('orderAmbulance',{
+                title: 'Order Details',
+                order: order
+            })
+        }else{
+            return res.redirect('/');
+        }
+        
     }catch{
         console.log('in ambUser Controller in order Catch');
         console.log(err)
-        return res.redirect('back')
+        return res.redirect('/')
     }
 }
 
@@ -51,16 +58,57 @@ module.exports.order = async function(req,res){
 // Accept Order
 module.exports.accept =async function(req,res){
     try{
-        let ambulances = await Ambulances.findByIdAndUpdate(req.params.id, {
-            sellerId: req.user.id,
-            requestApproved:'Yes',
-            orderStatus : 'Confirmed'
-        });
+        if(req.user.currentStatus == 'Booked'){
+            console.log('Finish Previous booking to accept new Booking')
+            return res.redirect('/');
+        }else{
+            let ambulances = await Ambulances.findByIdAndUpdate(req.params.id, {
+                sellerId: req.user.id,
+                requestApproved:'Yes',
+                orderStatus : 'Confirmed'
+            });
         
-        return res.redirect('back');
+            return res.redirect('back');
+        }
         
     }catch{
         console.log('In ambUser Controller in accept Catch')
+        console.log(err)
+        return res.redirect('back');
+    }
+}
+
+// Current Booking
+module.exports.currentBooking =async function(req,res){
+    try{
+        let order = await Ambulances.findOne({sellerId:req.user.id,orderStatus:'Confirmed'});
+        console.log('Harsh is Inside of Current Booking try block')
+        console.log(order);
+
+        return res.render('orderAmbulance',{            
+            order: order,
+            title: 'Current Booking'
+        })
+    }catch{
+        console.log('In ambUser Controller in currentBooking Catch')
+        console.log(err)
+        return res.redirect('back');
+    }
+}
+
+// Open Previous Booking Page
+module.exports.previousBookings =async function(req,res){
+    try{
+        let myBooking = await Ambulances.find({sellerId:req.user.id,orderStatus:'completed'});
+        console.log('Harsh previousBookings Details ambUser Controller')
+        console.log(myBooking)
+        
+        return res.render('ambu',{
+            title:'Previous Bookings',
+            myAmb: myBooking
+        });
+    }catch{
+        console.log('previousBookings Catch Err Block in ambUser Controller')
         console.log(err)
         return res.redirect('back');
     }
