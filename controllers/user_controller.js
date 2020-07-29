@@ -1,4 +1,7 @@
 const User = require('../models/user');
+const Ambulances = require('./../models/ambulance');
+const Hospitals = require('./../models/hospital');
+const Medicine = require('./../models/medicines');
 
 
 module.exports.create = function(req,res){
@@ -23,10 +26,31 @@ module.exports.create = function(req,res){
 }
 
 
-module.exports.profile = function(req,res){
-    return res.render('dash',{
-        title:'Profile'
-    })
+module.exports.profile =async function(req,res){
+    try {
+        let ambulances = await Ambulances.find({user : req.user._id});
+        let hospitals = await Hospitals.find({user : req.user._id});
+        let medicines = await Medicine.find({user :  req.user._id});
+
+        let objArray = []
+        for(let i = 0; i< (ambulances.length + hospitals.length + medicines.length) ; i++){
+            if(i<ambulances.length){
+                objArray[i] = ambulances[i];
+            }else if(i<(ambulances.length + hospitals.length)){
+                objArray[i] = hospitals[i-ambulances.length];
+            }else{
+                objArray[i] = medicines[i-ambulances.length-hospitals.length]
+            }
+        }
+        console.log(objArray)
+
+        return res.render('dash',{
+            title:'Profile',
+            objArray:objArray
+        })
+    } catch (err) {
+        
+    }
 }
 
 

@@ -21,6 +21,7 @@ module.exports.hospital = function(req,res){
 }
 
 module.exports.medicineOrder = function(req,res){
+    req.body.model = 'Medicines';
     req.body.requestApproved = 'no';
     req.body.user = req.user.id;
     req.body.orderStatus = 'Waiting';
@@ -36,6 +37,7 @@ module.exports.medicineOrder = function(req,res){
 
 
 module.exports.ambulanceCall = function(req,res){
+    req.body.model = 'Ambulance';
     req.body.requestApproved = 'no';
     req.body.user = req.user.id;
     req.body.orderStatus = 'Waiting';
@@ -53,6 +55,7 @@ module.exports.ambulanceCall = function(req,res){
 
 
 module.exports.bookBed = function(req,res){
+    req.body.model = 'Hospital'
     req.body.requestApproved = 'no';
     req.body.user = req.user._id;
     req.body.orderStatus = 'Waiting';

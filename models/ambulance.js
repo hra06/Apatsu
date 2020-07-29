@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const ambulanceSchema = new mongoose.Schema({
+    model:{
+        type:String,
+        required:true
+    },
     patinentName:{
         type:String,
         required:true,
