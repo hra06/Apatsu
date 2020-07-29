@@ -54,9 +54,13 @@ module.exports.ambulanceCall = function(req,res){
 
 module.exports.bookBed = function(req,res){
     req.body.requestApproved = 'no';
+    req.body.user = req.user._id;
+    req.body.orderStatus = 'Waiting';
+    // req.body.sellerId = null;
     Hospital.create(req.body, function(err,hospital){
         if(err){
             console.log('Error in Booking the bed in Hospital');
+            return res.redirect('back')
         }
         // console.log(req.body)
         

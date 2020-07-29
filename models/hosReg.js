@@ -1,9 +1,13 @@
 const mongoose = require('mongoose');
 
 const hosRegSchema = new mongoose.Schema({
+    hosName:{
+        type:String,
+        required: true
+    },
     hosLicense:{
         type:String,
-        required:true,
+        required:true
     },
     email:{
         type:String,

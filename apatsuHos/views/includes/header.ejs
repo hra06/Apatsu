@@ -9,18 +9,11 @@
     </div>
     <div class="two">
         <ul>
-            <li><a href="/hosusers/bookings">Bookings</a></li>
-            <!-- <li>
-                <button class="dropbtn">Services</button>
-                <div class="dropdown-content">
-                    <a href="#">Medicine Delivery</a>
-                    <a href="#">Self Assesment</a>
-                    <a href="#">Ambulance</a>
-                    <a href="#">Hospitals</a>
-                </div>
-            </li> -->
-            <!-- <li><a href="#">Self Assesment</a></li> -->
-            <li><a href="#">Contact Us</a></li>
+            <% if(user){ %>
+                <li><a href="/hosusers/bookings">Bookings</a></li>
+                <li><a href="/hosusers/confirmedBookings">Confirmed Bookings</a></li>
+                <li><a href="/hosusers/previousBookings">Previous Bookings</a></li>
+            <% } %>
         </ul>
         <li id="usernav">
             <% if(user){ %>
