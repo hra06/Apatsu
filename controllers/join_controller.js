@@ -20,14 +20,16 @@ module.exports.createMed = function(req,res){
         MedReg.findOne({email:req.body.email }, function(err, medReg){
             if(err){
                 console.log('error in finding the Medical Shop while signingUp');
-                return;
+                console.log(err)
+                return res.redirect('back');
             }
 
             if(!medReg){
                 MedReg.create(req.body, function(err,medReg){
                     if(err){
                         console.log('error in Creating the medical shop while signingUp');
-                        return;
+                        console.log(err)
+                        return res.redirect('back');
                     }
                     return res.redirect('/');
                 });
