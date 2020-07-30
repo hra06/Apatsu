@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apatsu | <%= title %></title>
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/store.css">
+</head>
+<body>
+    <%- include('./includes/header.ejs')%>
+
+    <div id="super">
+
+        
+        <% if(store){ %>
+            <h1 style="color: blue;">Our Medical Store</h1>
+            <hr>
+            <br>
+            <table>
+                <tr style="background-color: darkgrey;">
+                    <th style="font-size: 1.4rem;"><strong>Shop Name</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Owner Name</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Shop Email</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Shop Phone</strong></th>
+                </tr>
+                <tr style="text-align: center;">
+                        <td><a href="#"><%= store.shopName %></a></td>
+                        <td><a href="#"><%= store.ownerName %></a></td>
+                        <td><a href="#"><%= store.email %></a></td>
+                        <td><a href="#"><%= store.onwerPhone %></a></td>
+                </tr>
+            </table>
+            <br>
+            <table id="address">
+                <tr style="background-color: darkgrey;">
+                    <th style="font-size: 1.4rem;width: auto;"><strong>Shop Address</strong></th>
+                    <th style="font-size: 1.4rem;width: auto;"><strong>Shop Pincode</strong></th>
+                </tr>
+                <tr style="text-align: center;">
+                        <td style="width: auto;"><a href="#"><%= store.shopAddress %></a></td>
+                        <td style="width: auto;"><a href="#"><%= store.shopPincode %></a></td>
+                </tr>
+            </table>
+            <% } %>
+        
+    </div>
+    <%- include('./includes/footer.ejs')%>
+</body>
+</html>

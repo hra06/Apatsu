@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apatsu | <%= title %></title>
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/store.css">
+</head>
+<body>
+    <%- include('./includes/header.ejs')%>
+
+    <div id="super">
+
+        
+        <% if(ambulance){ %>
+            <h1 style="color: blue;">Our Ambualnce</h1>
+            <hr>
+            <br>
+            <table>
+                <tr style="background-color: darkgrey;">
+                    <th style="font-size: 1.4rem;"><strong>Ambualnce Number</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Owner Name</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Ambualnce Email</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Ambualnce Phone</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Driver Phone</strong></th>
+                </tr>
+                <tr style="text-align: center;">
+                        <td><a href="#"><%= ambulance.ambNum %></a></td>
+                        <td><a href="#"><%= ambulance.ambOwnerName %></a></td>
+                        <td><a href="#"><%= ambulance.email %></a></td>
+                        <td><a href="#"><%= ambulance.ambPhone %></a></td>
+                        <td><a href="#"><b><%= ambulance.driverPhone %></b></a></td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <table id="address">
+                <tr style="background-color: darkgrey;">
+                    <th style="font-size: 1.4rem;width: auto;"><strong>Ambualnce Address</strong></th>
+                    <th style="font-size: 1.4rem;width: auto;"><strong>Ambualnce Pincode</strong></th>
+                </tr>
+                <tr style="text-align: center;">
+                        <td style="width: auto;"><a href="#"><%= ambulance.ambAddress %></a></td>
+                        <td style="width: auto;"><a href="#"><%= ambulance.ambPincode %></a></td>
+                </tr>
+            </table>
+            <% } %>
+        
+    </div>
+    <%- include('./includes/footer.ejs')%>
+</body>
+</html>

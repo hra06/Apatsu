@@ -10,69 +10,90 @@
 <body>
     <%- include('./includes/header.ejs')%>
     
-    <div id="amb-call">
-        <h1>Call an Ambulance</h1>
+        
+        <% if(pincode == ''){ %>
+            <div style="background-color: white; min-height: 59.7vh;">
+                <br><br><br>
+                <h2 style="text-align: center;">Search for Pincode from where you want pickUp</h2>
+                <br><br><br>
+                <form action="/service/formAmbulance" method="POST">
+                    <div id="#form">
+                        <input type="number" placeholder="Search for Pincode" name="ambPincode" id="srchpcde" required>
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+                <% if(data){ %>
+                    <h2 style="text-align: center;"><%= data%></h2>
+                <% } %>
+            </div>
+        <% }else{ %>
+            <div id="amb-call">
+                <h1>Call an Ambulance</h1>
+                <h2 style="text-align: center;">There is an Ambulance Service at Pincode : <%= pincode %></h2>
 
-        <div id="amb-pat">
+                <div id="amb-pat">
 
-            <form action="/service/ambulanceCall" method="POST">
-                <div>
-                    <label for="amb-pat-nam">Name</label>
-                    <input type="text" name="patinentName" id="amb-pat-nam" required>
-                </div>
+                    <form action="/service/ambulanceCall" method="POST">
+                        <div>
+                            <label for="amb-pat-nam">Name</label>
+                            <input type="text" name="patinentName" id="amb-pat-nam" required>
+                        </div>
 
-                <div>
-                    <label for="amb-pat-age">Age</label>
-                    <input type="number" name="patientAge" id="amb-pat-age" required>
-                </div>
-                <nav>
-                    <label for="amb-pat-gen">Gender</label>
-                    <input type="radio" name="patientSex" id="amb-pat-gen" value="male" required>Male&nbsp;
-                    <input type="radio" name="patientSex" id="amb-pat-gen" value="female" required>Female&nbsp;
-                    <input type="radio" name="patientSex" id="amb-pat-gen" value="others" required>Others&nbsp;
-                </nav>
-                <div>
-                    <label for="amb-pat-mob">MobileNo.</label>
-                    <input type="number" name="patientMob" id="amb-pat-mob" required>
-                </div>
-                <div>
-                    <label for="amb-pat-email">Email</label>
-                    <input type="email" name="patientEmail" id="amb-pat-email" required>
-                </div>
-                <div>
-                    <label for="amb-pat-adrs">Address</label>
-                    <input type="text" name="patientAddress" id="amb-pat-adrs" required>
-                </div>
-                <div>
-                    <label for="amb-pat-pin">Pincode</label>
-                    <input type="number" name="patientPincode" id="amb-pat-pin" required>
-                </div>                
-                <div>
-                    <p>Destination Hospital</p>
-                    <ul>
-                        <li>
-                            <label for="amb-pat-d-hosp">Hospital</label>
-                            <input type="text" name="patientHospital" id="amb-pat-d-hosp" required>
-                        </li>
-                        <li>
-                            <label for="amb-pat-d-adrs">Address</label>
-                            <input type="text" name="patientHospitalAddress" id="amb-pat-d-adrs" required>
-                        </li>                        
-                        <li>
-                            <label for="amb-pat-d-pin">Pincode</label>
-                            <input type="number" name="patientHospitalPincode" id="amb-pat-d-pin" required>
-                        </li>
-                    </ul>
+                        <div>
+                            <label for="amb-pat-age">Age</label>
+                            <input type="number" name="patientAge" id="amb-pat-age" required>
+                        </div>
+                        <nav>
+                            <label for="amb-pat-gen">Gender</label>
+                            <input type="radio" name="patientSex" id="amb-pat-gen" value="male" required>Male&nbsp;
+                            <input type="radio" name="patientSex" id="amb-pat-gen" value="female" required>Female&nbsp;
+                            <input type="radio" name="patientSex" id="amb-pat-gen" value="others" required>Others&nbsp;
+                        </nav>
+                        <div>
+                            <label for="amb-pat-mob">MobileNo.</label>
+                            <input type="number" name="patientMob" id="amb-pat-mob" required>
+                        </div>
+                        <div>
+                            <label for="amb-pat-email">Email</label>
+                            <input type="email" name="patientEmail" id="amb-pat-email" required>
+                        </div>
+                        <div>
+                            <label for="amb-pat-adrs">Address</label>
+                            <input type="text" name="patientAddress" id="amb-pat-adrs" required>
+                        </div>
+                        <!-- <div> -->
+                            <!-- <label for="amb-pat-pin">Pincode</label> -->
+                            <!-- <input type="number" name="patientPincode" id="amb-pat-pin" required> -->
+                            <input type="hidden" name="patientPincode" value="<%= pincode %>">
+                        <!-- </div>                 -->
+                        <div>
+                            <p>Destination Hospital</p>
+                            <ul>
+                                <li>
+                                    <label for="amb-pat-d-hosp">Hospital</label>
+                                    <input type="text" name="patientHospital" id="amb-pat-d-hosp" required>
+                                </li>
+                                <li>
+                                    <label for="amb-pat-d-adrs">Address</label>
+                                    <input type="text" name="patientHospitalAddress" id="amb-pat-d-adrs" required>
+                                </li>                        
+                                <li>
+                                    <label for="amb-pat-d-pin">Pincode</label>
+                                    <input type="number" name="patientHospitalPincode" id="amb-pat-d-pin" required>
+                                </li>
+                            </ul>
 
+                        </div>
+                        <div >
+                            <input id="submit"  type="submit">
+                        </div>
+                        
+                        
+                    </form>
                 </div>
-                <div >
-                    <input id="submit"  type="submit">
-                </div>
-                
-                
-            </form>
-        </div>
-    </div>
+            </div>
+        <% } %>
+    
 
     <%- include('./includes/footer.ejs')%>
 </body>

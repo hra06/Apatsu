@@ -12,132 +12,143 @@
 
     <%- include('./includes/header.ejs')%>
     
-
-
-
-
-    <div class="service-div" style="background-color: white;">
-        
-        <div id="parent-form">
-    
-            <div id="headi">
-                <h1 >Medicine Delivery Form
-                </h1>
-                <p>we are happy to help you</p>
-            </div>
+    <% if(pincode == ''){ %>
+        <div style="background-color: white; min-height: 59.7vh;">
+            <br><br><br>
+            <h2 style="text-align: center;">Search for Pincode from where you want pickUp</h2>
+            <br><br><br>
+            <form action="/service/formMedicine" method="POST">
+                <div id="#form">
+                    <input type="number" placeholder="Search for Pincode" name="shopPincode" id="srchpcde" required>
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <% if(data){ %>
+                <h2 style="text-align: center;"><%= data%></h2>
+            <% } %>
+        </div>
+    <% }else{ %>
+        <div class="service-div" style="background-color: white;">
             
-            <div id="med-form">
-                <form action="/service/medicineOrder" method="POST">
-                    <!-- basic details -->
-                    <div>
-                        <label for="pat-name">Patient Name<sup>*</sup></label>
-                        <input type="text" name="patientName" id="pat-name" required>
-                    </div>
-                    <div>
-                        <label for="pat-age">Age<sup>*</sup></label>
-                        <input type="number" name="patientAge" id="pat-age" required>
-                    </div>
-                    <div>
-                        <label for="pat-gen">Gender<sup>*</sup></label>
-                        <input type="radio" name="patientGender" id="pat-gen" value="Male" required>Male &nbsp;                
-                        <input type="radio" name="patientGender" id="pat-gen" value="Female" required>Female &nbsp;
-                        <input type="radio" name="patientGender" id="pat-gen" value="TransGender" required>Others &nbsp;
-                    </div>
-                    <div>
-                        <label for="pat-adrs">Address<sup>*</sup></label>
-                        <input type="textarea" name="patientAddress" id="pat-adrs" rows="10" cols="20" required>
-                    </div>
-                    <div>
-                        <label for="pat-pin">Pincode<sup>*</sup></label>                
-                        <input type="number" name="patientPincode" id="pat-pin" required>
-                    </div>
-                    <div>
-                        <label for="pat-mob">Mobile Number<sup>*</sup></label>                
-                        <input type="number" name="patientMobile" id="pat-mob" required>
-                    </div>
-                    <div>
-                        <label for="pat-email">Email Address</label>
-                        <input type="email" name="patientEmail" id="pat-email">
-                    </div>
-    
-                    <!-- Medicines -->
-    
-                    <div>
-                        <label for="pat-med-1">Medicine Name<sup>*</sup></label>
-                        <input type="text" name="patientMedicine1" id="pat-med-1" required>
-                        &nbsp;&nbsp;&nbsp;<label for="pat-cap-1" id="qty1" >Qty.<sup>*</sup></label>
-                        <input type="number" name="quantity1" id="pat-cap-1" required>
-                    </div>
-                    <div>
-                        <label for="pat-med-2">Medicine Name</label>
-                        <input type="text" name="patientMedicine2" id="pat-med-2">
-                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty2">Qty.</label>
-                        <input type="number" name="quantity2" id="">
-                    </div>
-                    <div>
-                        <label for="pat-med-3">Medicine Name</label>
-                        <input type="text" name="patientMedicine3" id="pat-med-3">
-                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty3">Qty.</label>
-                        <input type="number" name="quantity3" id="">
-                    </div>
-                    <div>
-                        <label for="pat-med-4">Medicine Name</label>
-                        <input type="text" name="patientMedicine4" id="pat-med-4">
-                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty4" ">Qty.</label>
-                        <input type="number" name="quantity4" id="">
-                    </div>
-                    <div>
-                        <label for="pat-med-5">Medicine Name</label>
-                        <input type="text" name="patientMedicine5" id="pat-med-5">
-                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty5">Qty.</label>
-                        <input type="number" name="quantity5" id="">
-                    </div>
-                    <div>
-                        <label for="pat-med-6">Medicine Name</label>
-                        <input type="text" name="patientMedicine6" id="pat-med-6">
-                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty6">Qty.</label>
-                        <input type="number" name="quantity6" id="">
-                    </div>
-                    <div>
-                        <label for="pat-med-7">Medicine Name</label>
-                        <input type="text" name="patientMedicine7" id="pat-med-7">
-                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty7">Qty.</label>
-                        <input type="number" name="quantity7" id="">
-                    </div>
-                    <div>
-                        <label for="pat-med-8">Medicine Name</label>
-                        <input type="text" name="patientMedicine8" id="pat-med-8">
-                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty8">Qty.</label>
-                        <input type="number" name="quantity8" id="">
-                    </div>
-                    <div>
-                        <label for="pat-med-9">Medicine Name</label>
-                        <input type="text" name="patientMedicine9" id="pat-med-9">
-                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty9">Qty.</label>
-                        <input type="number" name="quantity9" id="">
-                    </div>
-                    <div>
-                        <label for="pat-med-10">Medicine Name</label>
-                        <input type="text" name="patientMedicine10" id="pat-med-10">
-                        &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty10">Qty.</label>
-                        <input type="number" name="quantity10" id="">
-                    </div>
-                    <div style="padding-left: 0.5vw;">
-                        <input type="submit" name="" id="sub">
-                    </div>             
-                </form>
-    
-            </div>
-    
-        </div>  
+            <div id="parent-form">
+        
+                <div id="headi">
+                    <h1 >Medicine Delivery Form
+                    </h1>
+                    <p>we are happy to help you <br> at <b>Pincode : <%= pincode %></b></p>
+                </div>
+                
+                <div id="med-form">
+                    <form action="/service/medicineOrder" method="POST">
+                        <!-- basic details -->
+                        <div>
+                            <label for="pat-name">Patient Name<sup>*</sup></label>
+                            <input type="text" name="patientName" id="pat-name" required>
+                        </div>
+                        <div>
+                            <label for="pat-age">Age<sup>*</sup></label>
+                            <input type="number" name="patientAge" id="pat-age" required>
+                        </div>
+                        <div>
+                            <label for="pat-gen">Gender<sup>*</sup></label>
+                            <input type="radio" name="patientGender" id="pat-gen" value="Male" required>Male &nbsp;                
+                            <input type="radio" name="patientGender" id="pat-gen" value="Female" required>Female &nbsp;
+                            <input type="radio" name="patientGender" id="pat-gen" value="TransGender" required>Others &nbsp;
+                        </div>
+                        <div>
+                            <label for="pat-adrs">Address<sup>*</sup></label>
+                            <input type="textarea" name="patientAddress" id="pat-adrs" rows="10" cols="20" required>
+                        </div>
+                        <!-- <div>
+                            <label for="pat-pin">Pincode<sup>*</sup></label>                
+                            <input type="number" name="patientPincode" id="pat-pin" required>
+                        </div> -->
+                        <input type="hidden" name="patientPincode" value="<%= pincode%>">
+                        <div>
+                            <label for="pat-mob">Mobile Number<sup>*</sup></label>                
+                            <input type="number" name="patientMobile" id="pat-mob" required>
+                        </div>
+                        <div>
+                            <label for="pat-email">Email Address</label>
+                            <input type="email" name="patientEmail" id="pat-email">
+                        </div>
+        
+                        <!-- Medicines -->
+        
+                        <div>
+                            <label for="pat-med-1">Medicine Name<sup>*</sup></label>
+                            <input type="text" name="patientMedicine1" id="pat-med-1" required>
+                            &nbsp;&nbsp;&nbsp;<label for="pat-cap-1" id="qty1" >Qty.<sup>*</sup></label>
+                            <input type="number" name="quantity1" id="pat-cap-1" required>
+                        </div>
+                        <div>
+                            <label for="pat-med-2">Medicine Name</label>
+                            <input type="text" name="patientMedicine2" id="pat-med-2">
+                            &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty2">Qty.</label>
+                            <input type="number" name="quantity2" id="">
+                        </div>
+                        <div>
+                            <label for="pat-med-3">Medicine Name</label>
+                            <input type="text" name="patientMedicine3" id="pat-med-3">
+                            &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty3">Qty.</label>
+                            <input type="number" name="quantity3" id="">
+                        </div>
+                        <div>
+                            <label for="pat-med-4">Medicine Name</label>
+                            <input type="text" name="patientMedicine4" id="pat-med-4">
+                            &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty4" ">Qty.</label>
+                            <input type="number" name="quantity4" id="">
+                        </div>
+                        <div>
+                            <label for="pat-med-5">Medicine Name</label>
+                            <input type="text" name="patientMedicine5" id="pat-med-5">
+                            &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty5">Qty.</label>
+                            <input type="number" name="quantity5" id="">
+                        </div>
+                        <div>
+                            <label for="pat-med-6">Medicine Name</label>
+                            <input type="text" name="patientMedicine6" id="pat-med-6">
+                            &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty6">Qty.</label>
+                            <input type="number" name="quantity6" id="">
+                        </div>
+                        <div>
+                            <label for="pat-med-7">Medicine Name</label>
+                            <input type="text" name="patientMedicine7" id="pat-med-7">
+                            &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty7">Qty.</label>
+                            <input type="number" name="quantity7" id="">
+                        </div>
+                        <div>
+                            <label for="pat-med-8">Medicine Name</label>
+                            <input type="text" name="patientMedicine8" id="pat-med-8">
+                            &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty8">Qty.</label>
+                            <input type="number" name="quantity8" id="">
+                        </div>
+                        <div>
+                            <label for="pat-med-9">Medicine Name</label>
+                            <input type="text" name="patientMedicine9" id="pat-med-9">
+                            &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty9">Qty.</label>
+                            <input type="number" name="quantity9" id="">
+                        </div>
+                        <div>
+                            <label for="pat-med-10">Medicine Name</label>
+                            <input type="text" name="patientMedicine10" id="pat-med-10">
+                            &nbsp;&nbsp;&nbsp;<label for="pat-cap" id="qty10">Qty.</label>
+                            <input type="number" name="quantity10" id="">
+                        </div>
+                        <div style="padding-left: 0.5vw;">
+                            <input type="submit" name="" id="sub">
+                        </div>             
+                    </form>
+        
+                </div>
+        
+            </div>  
 
-    </div>
+        </div>
+    <% } %>
+
 
 
     <%- include('./includes/footer.ejs')%>
-
-
-
-
 </body>
 </html>

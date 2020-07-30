@@ -26,9 +26,6 @@ module.exports.medicalStores =function(req, res){
     })
 }
 
-module.exports.medicine = function(req,res){
-    return res.render('medicine',{title:'Medicines'});
-}
 
 module.exports.ambulanceList = function(req,res){
     AmbReg.find({approved:'yes'},function(err,ambReg){
@@ -73,21 +70,39 @@ module.exports.hospitals = function(req,res){
 }
 
 
+// Medicine Form
+module.exports.medicine = function(req,res){
+    return res.render('medicine',{
+        title:'Medicines',
+        pincode : '',
+        data : ''
+    });
+}
 
+// Ambulance form
 module.exports.ambulance = function(req,res){
-    return res.render('ambulance',{title:'Ambulance'});
+    return res.render('ambulance',{
+        title:'Ambulance',
+        pincode : '',
+        data : ''
+    });
 }
 
+// Self CheckUp
+// module.exports.checkup = function(req,res){
+//     return res.render('checkup',{title:'Checkup'});
+// }
 
-module.exports.checkup = function(req,res){
-    return res.render('checkup',{title:'Checkup'});
-}
-
-
+// Hospital Form
 module.exports.hospital = function(req,res){
-    return res.render('hospitals',{title:'Hospital'})
+    let id = req.params.id
+    return res.render('hospitals',{
+        title:'Hospital',
+        id : req.params.id
+    })
 }
 
+// Submit Form
 module.exports.medicineOrder = function(req,res){
     req.body.model = 'Medicines';
     req.body.requestApproved = 'no';
@@ -103,7 +118,7 @@ module.exports.medicineOrder = function(req,res){
     });
 }
 
-
+// Submit Form
 module.exports.ambulanceCall = function(req,res){
     req.body.model = 'Ambulance';
     req.body.requestApproved = 'no';
@@ -121,7 +136,7 @@ module.exports.ambulanceCall = function(req,res){
     });
 }
 
-
+// Submit Bed
 module.exports.bookBed = function(req,res){
     req.body.model = 'Hospital'
     req.body.requestApproved = 'no';
@@ -211,5 +226,117 @@ module.exports.hospitalsPincode = function(req,res){
             hospitals :hosReg,
             ambulances : undefined
         })
+    })
+}
+
+module.exports.viewMedStore = function(req,res){
+    MedReg.findById(req.params.id,function(err,medReg){
+        
+        if(err){
+            console.log('Harsh is Inside User serviceController view med store ')
+            console.log(err)
+            return res.redirect('back')
+        }
+
+        console.log('Harsh is inside  not in err ServiceController Medical view med store')
+        console.log(medReg);
+        
+        return res.render('store',{
+            title:'Medical Store',
+            store :medReg
+        })
+    })
+}
+
+module.exports.viewHospital = function(req,res){
+    HosReg.findById(req.params.id,function(err,hosReg){
+        
+        if(err){
+            console.log('Harsh is Inside User serviceController view hospital')
+            console.log(err)
+            return res.redirect('back')
+        }
+
+        console.log('Harsh is inside  not in err ServiceController Medical view hospital')
+        console.log(hosReg);
+        
+        return res.render('hosPage',{
+            title:'Hospital',
+            hospital :hosReg
+        })
+    })
+}
+
+// viewAmbulance
+module.exports.viewAmbulance = function(req,res){
+    AmbReg.findById(req.params.id,function(err,ambReg){
+        
+        if(err){
+            console.log('Harsh is Inside User serviceController view Ambulance')
+            console.log(err)
+            return res.redirect('back')
+        }
+
+        console.log('Harsh is inside  not in err ServiceController view hospital')
+        console.log(ambReg);
+        
+        return res.render('ambPage',{
+            title:'Ambulance',
+            ambulance :ambReg
+        })
+    })
+}
+
+// Search Pincode for Ambulance form
+module.exports.formAmbulance = function(req,res){
+    AmbReg.findOne(req.body,function(err,ambReg){
+        if(err){
+            console.log("harsh is searching for an ambulanceBook @ pincode form")
+            console.log(err);
+            return res.send("404");
+        }
+
+        if(ambReg == null){
+            console.log('Not found any Ambulance in your Pincode')
+            return res.render('ambulance',{
+                title:'Ambulance',
+                pincode : '',
+                data : 'There is not any ambulance at current Pincode'
+            });
+        }else{
+            console.log('You can Fill the ambulance form now');
+            return res.render('ambulance',{
+                title:'Ambulance',
+                pincode :req.body.ambPincode,
+                data : ''
+            });
+        }
+    })
+}
+
+// Search Pincode for Medicines form
+module.exports.formMedicine = function(req,res){
+    MedReg.findOne(req.body,function(err,medReg){
+        if(err){
+            console.log("harsh is searching for an fromedine @ pincode form")
+            console.log(err);
+            return res.send("404");
+        }
+
+        if(medReg == null){
+            console.log('Not found any Medicine Order in your Pincode')
+            return res.render('medicine',{
+                title:'Medicines',
+                pincode : '',
+                data : 'There is not any Medical Store at your current Pincode'
+            });
+        }else{
+            console.log('You can Fill the ambulance form now');
+            return res.render('medicine',{
+                title:'Medicines',
+                pincode :req.body.shopPincode,
+                data : ''
+            });
+        }
     })
 }

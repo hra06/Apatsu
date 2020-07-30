@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apatsu | <%= title %></title>
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/store.css">
+</head>
+<body>
+    <%- include('./includes/header.ejs')%>
+
+    <div id="super">
+
+        
+        <% if(hospital){ %>
+            <h1 style="color: blue;">Our Hospital</h1>
+            <hr>
+            <br>
+            <table>
+                <tr style="background-color: darkgrey;">
+                    <th style="font-size: 1.4rem;"><strong>Hospital Name</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Manager Name</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Hospital Email</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Hospital Phone</strong></th>
+                    <th style="font-size: 1.4rem;"><strong>Hospital Speciality</strong></th>
+                </tr>
+                <tr style="text-align: center;">
+                        <td><a href="#"><%= hospital.hosName %></a></td>
+                        <td><a href="#"><%= hospital.managerName %></a></td>
+                        <td><a href="#"><%= hospital.email %></a></td>
+                        <td><a href="#"><%= hospital.managerPhone %></a></td>
+                        <td><a href="#"><b><%= hospital.hosSpeciality %></b></a></td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <table id="address">
+                <tr style="background-color: darkgrey;">
+                    <th style="font-size: 1.4rem;width: auto;"><strong>Hospital Address</strong></th>
+                    <th style="font-size: 1.4rem;width: auto;"><strong>Hospital Pincode</strong></th>
+                </tr>
+                <tr style="text-align: center;">
+                        <td style="width: auto;"><a href="#"><%= hospital.hosAddress %></a></td>
+                        <td style="width: auto;"><a href="#"><%= hospital.hosPincode %></a></td>
+                </tr>
+            </table>
+
+            <div>
+                <a href="/service/hospital/<%= hospital._id %>"><h2>Book Bed</h2></a>
+            </div>
+            <% } %>
+        
+    </div>
+    <%- include('./includes/footer.ejs')%>
+</body>
+</html>
