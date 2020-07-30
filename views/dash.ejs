@@ -14,7 +14,7 @@
      
 
 
-    <div style="background-color: white;">
+    <div style="background-color: white; width: 100vw;">
 
         <br>
         <div id="dashboard">
@@ -28,7 +28,7 @@
                 </ul>
             </div>
 
-            <div id="das-order">
+            <!-- <div id="das-order">
                 <ul id="order-summary">
                     <h2><li>Type</li></h2>
                     <h2><li>Order Details</li></h2>
@@ -48,21 +48,47 @@
                     <li>Current Status</li>
                 </ul>
             </div>
-        </div>
+        </div> -->
 
-
-
-
-        <%- include('./includes/footer.ejs')%>
-
-
-
-
+        <div id="das-order">
+            <% if(objArray.length){ %>
+                <table>
+                    <tr class="order-summary">
+                        <th>Type</th>
+                        <th>Order Details</th>
+                        <th>Time</th>
+                        <th>Current Status</th>
+                    </tr>
+                    <% for( let i =  objArray.length-1  ;i >= 0 ; i--){ %>
+                        <% if(objArray[i].model == 'Ambulance'){ %>
+                            <tr>
+                                <td><%= objArray[i].model %></td>
+                                <td><a href="/users/ambulance/<%= objArray[i]._id %>"><%= objArray[i]._id %></a></td>
+                                <td style="width: auto;"><%= objArray[i].createdAt %></td>
+                                <td><%= objArray[i].orderStatus %></td>
+                                </a>
+                            </tr>
+                        <% }else if(objArray[i].model == 'Hospital'){ %>
+                            <tr>                               
+                                <td><%= objArray[i].model %></td>
+                                <td><a href="/users/hospital/<%= objArray[i]._id %>"><%= objArray[i]._id %></a></td>
+                                <td style="width: auto;"><%= objArray[i].createdAt %></td>
+                                <td><%= objArray[i].orderStatus %></td>
+                            </tr>
+                        <% } else if(objArray[i].model == 'Medicines'){%>
+                            <tr>
+                                <td><%= objArray[i].model %></td>
+                                <td><a href="/users/medicine/<%= objArray[i]._id %>"><%= objArray[i]._id %></a></td>
+                                <td style="width: auto;"><%= objArray[i].createdAt %></td>
+                                <td><%= objArray[i].orderStatus %></td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                </table>
+            <% } %>
+        </div> 
     </div>
 
-
-
-
-
+    <%- include('./includes/footer.ejs')%>
 </body>
 </html>

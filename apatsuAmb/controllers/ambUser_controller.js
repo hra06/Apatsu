@@ -38,7 +38,7 @@ module.exports.order = async function(req,res){
     try{
         let order = await Ambulances.findById(req.params.id);
         console.log('Inside if of open particular booking')
-        if(order.sellerId == req.user.id || order.sellerId == ''){
+        if(order.sellerId == req.user.id || order.sellerId == undefined){
             return res.render('orderAmbulance',{
                 title: 'Order Details',
                 order: order
@@ -58,7 +58,7 @@ module.exports.order = async function(req,res){
 // Accept Order
 module.exports.accept =async function(req,res){
     try{
-        if(req.user.currentStatus == 'Booked'){
+        if(req.user.currentStatus == 'booked'){
             console.log('Finish Previous booking to accept new Booking')
             return res.redirect('/');
         }else{

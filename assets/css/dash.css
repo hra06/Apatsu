@@ -147,27 +147,25 @@ header .two a:hover{
 #das-order{
     margin: 0;
     padding: 0;
-    margin-left: 25px;
+    margin-left: 150px;
     width: 75vw;
 
 }
 
-#das-order ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
+th{
+    width: 16vw;
+    background-color: rgb(230, 225, 225);
 }
-#order-summary li{
-    width: 15vw;
+td{
+    width: 16vw;
+    text-align: center;
 }
-#order-summary{
-    display: flex;
-    justify-content: space-evenly;
+tr{
+    background-color: cornsilk;
 }
-/* 
-#dash-order{
-    width: 70vw;
-} */
+tr:hover{
+    background-color: white;
+}
 
 /* Footer */
 footer{    

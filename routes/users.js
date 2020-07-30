@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/create',userController.create);
 
 router.get('/profile',passport.checkAuthentication,userController.profile);
-router.get('/medicine',passport.checkAuthentication,serviceController.medicine);
+
 
 // use passport as a middleware to authenticate
 router.post('/create-session', passport.authenticate(
@@ -18,6 +18,10 @@ router.post('/create-session', passport.authenticate(
 
 router.get('/sign-out',userController.destroySession);
 
+// Order at Id
+router.get('/ambulance/:id',passport.checkAuthentication,userController.ambulance);
+router.get('/hospital/:id',passport.checkAuthentication,userController.hospital);
+router.get('/medicine/:id',passport.checkAuthentication,userController.medicine);
 
 
 module.exports = router;
