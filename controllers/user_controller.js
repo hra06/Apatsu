@@ -5,6 +5,7 @@ const Medicine = require('./../models/medicines');
 const AmbReg = require('./../models/ambReg');
 const HosReg = require('./../models/hosReg');
 const MedReg = require('./../models/medReg');
+const Ambulance = require('./../models/ambulance');
 
 
 module.exports.create = function(req,res){
@@ -71,31 +72,37 @@ module.exports.destroySession = function(req,res){
 module.exports.ambulance =async function(req,res){
     try{
         let ambulance =await Ambulances.findById(req.params.id)
-
+        console.log(ambulance.sellerId)
         if(ambulance.sellerId != undefined){
-            let ambReg = await AmbReg.findById(ambulance.sellerId);
-            
-            return res.send(ambReg);
+            var ambReg = await AmbReg.findById(ambulance.sellerId);
         }
+        console.log(ambReg)
 
-        return res.send(ambulance)
+        return res.render('orderAmbulance',{
+            title : 'Ambulance Booking',
+            order : ambulance,
+            ambReg : ambReg
+        })
     }catch(err){
         console.log(err)
         console.log('Harsh is inside user controller of user in ambulance err')
-        return res.redirect('back')
+        // return res.redirect('back')
     }
 }
 
 module.exports.hospital =async function(req,res){
     try{
         let hospital =await Hospitals.findById(req.params.id)
+        let hosReg = undefined
         if(hospital.sellerId != undefined){
-            let hosReg = await HosReg.findById(hospital.sellerId);
-            
-            return res.send(hosReg);
+            hosReg = await HosReg.findById(hospital.sellerId);
         }
-        
-        return res.send(hospital)
+        console.log(hosReg)
+        return res.render('orderHos',{
+            title : 'Bed Booking',
+            order : hospital,
+            hosReg : hosReg
+        });
     }catch(err){
         console.log(err)
         console.log('Harsh is inside user controller of user in hospital err')
@@ -106,16 +113,68 @@ module.exports.hospital =async function(req,res){
 module.exports.medicine =async function(req,res){
     try{
         let medicine =await Medicine.findById(req.params.id)
+        let medReg = undefined
         if(medicine.sellerId != undefined){
-            let medReg = await MedReg.findById(medicine.sellerId);
-            
-            return res.send(medReg);
+            medReg = await MedReg.findById(medicine.sellerId);            
         }
         
-        return res.send(medicine)
+        return res.render('orderMedicine',{
+            title : 'Booked Medicine',
+            order : medicine,
+            medReg : medReg
+        })
     }catch(err){
         console.log(err)
         console.log('Harsh is inside user controller of user in medicine err')
+        return res.redirect('back')
+    }
+}
+
+
+module.exports.statusH =async function(req,res){
+    try {
+        let hospital = await Hospitals.findByIdAndUpdate(req.params.id , {
+            orderStatus : 'Completed'
+        });
+
+        return res.redirect('back')
+    } catch (err) {
+        console.log('Harsh is inside statusH of usercontoller')
+        return res.redirect('back')
+    }
+}
+
+module.exports.statusA =async function(req,res){
+    try {
+        let ambulance = await Ambulances.findByIdAndUpdate(req.params.id , {
+            orderStatus : 'Completed'
+        });
+
+        let ambReg = await AmbReg.findByIdAndUpdate(ambulance.sellerId,{
+            currentStatus : 'waiting'
+        })
+
+        
+            console.log('Harsh was here')
+            console.log(ambReg)
+            return res.redirect('back')
+        
+    } catch (err) {
+        console.log('Harsh is inside statusaAof usercontoller')
+        console.log(err)
+        return res.redirect('back')
+    }
+}
+
+module.exports.statusM =async function(req,res){
+    try {
+        let medicine = await Medicine.findByIdAndUpdate(req.params.id , {
+            orderStatus : 'Completed'
+        });
+
+        return res.redirect('back')
+    } catch (err) {
+        console.log('Harsh is inside statusaAof usercontoller')
         return res.redirect('back')
     }
 }

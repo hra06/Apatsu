@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apatsu | <%= title %></title>
     <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/hosp.css">
+    <link rel="stylesheet" href="/css/ambu.css">
 </head>
 <body>
     <%- include('./includes/header.ejs')%>
 
     <div id="super">
             <% if(order){ %>
-                <h1 id="title" >Booking Id : <%= order._id%></h1>
+                <h1 id="title" >Your Order Details of Booking Id : <%= order.id %></h1>
                 <br>            
                 <table>
                     <tr style="background-color: darkgrey;">
@@ -36,7 +36,7 @@
                 </table>
                                 
                 <table style="margin: auto;margin-top: 3vw;">
-                    <caption><b>Patient Address</b></caption>
+                    <caption><b>Patient Pick Up Address</b></caption>
                     <tr style="background-color: darkgrey;">
                         <th style="width: auto;padding:0.5vh 2vw;">Address</th>
                         <th style="width: auto;padding:0.5vh 2vw;">Pincode</th>
@@ -47,26 +47,53 @@
                     </tr>
                 </table>
                 <table style="margin: auto;margin-top: 3vw;">
-                    <!-- <caption><b>Patient Destination Address</b></caption> -->
+                    <caption><b>Patient Destination Address</b></caption>
                     <tr style="background-color: darkgrey;">
-                        <th style="width: auto;padding:0.5vh 2vw; ">Booking Time</th>
-                        <!-- <th style="width: auto;padding:0.5vh 2vw;"><%= order.createdAt %></th> -->
-                        <!-- <th style="width: auto;padding:0.5vh 2vw;">Hospital Pincode</th> -->
+                        <th style="width: auto;padding:0.5vh 2vw;">Hospital Name</th>
+                        <th style="width: auto;padding:0.5vh 2vw;">Hospital Address</th>
+                        <th style="width: auto;padding:0.5vh 2vw;">Hospital Pincode</th>
                     </tr>
                     <tr>
-                        <td style="width: auto;padding:0.5vh 2vw;"> <b><%= order.createdAt %></b></td>
-                        <!-- <td style="width: auto;padding:0.5vh 2vw;"> <%= order.patientHospitalAddress %></td>
-                        <td style="width: auto;padding:0.5vh 2vw;"> <%= order.patientHospitalPincode %></td> -->
+                        <td style="width: auto;padding:0.5vh 2vw;"> <%= order.patientHospital %></td>
+                        <td style="width: auto;padding:0.5vh 2vw;"> <%= order.patientHospitalAddress %></td>
+                        <td style="width: auto;padding:0.5vh 2vw;"> <%= order.patientHospitalPincode %></td>
                     </tr>
                 </table>
                 
                 <br><br>
                 <% if(order.requestApproved == 'no'){ %>
-                    <form action="/hosusers/accept/<%= order.id %>" method="POST" style="text-align: center;">
-                        <input type="submit" name="approved" value="Approve" style="width: 20vw;; height: 4vh; font-weight: bold; font-size: 1.5rem; letter-spacing: .1em; border: none; background-color: #054a4a; color: white;">
-                    </form>
+                    
+                        <p style="width: 20vw;; height: 4vh; font-weight: bold; font-size: 1.5rem; letter-spacing: .1em; border: none; background-color: #054a4a; color: white;">Approved</p>
                 <% }else if(order.requestApproved == 'Yes' && order.orderStatus == 'Confirmed'){ %>
                         <p style="width: 20vw;; height: 4vh; font-weight: bold; font-size: 1.5rem; letter-spacing: .1em; border: none; background-color: #054a4a; color: white;text-align: center; margin: auto;">Order Confirmed</p>
+                <% }else if(order.requestApproved == 'Yes' && order.orderStatus == 'Completed'){ %>
+                            <p style="width: 20vw;; height: 4vh; font-weight: bold; font-size: 1.5rem; letter-spacing: .1em; border: none; background-color: #054a4a; color: white;text-align: center; margin: auto;">Order Completed</p>
+                <% } %>
+
+                <% if(ambReg){ %>         
+                    <table style="margin: auto;">
+                        <tr style="background-color: darkgrey;">
+                            <th style="font-size: 1.4rem;"><strong>Ambulance Number</strong></th>
+                            <th style="font-size: 1.4rem;"><strong>Ambulance Owner Name</strong></th>
+                            <th style="font-size: 1.4rem;"><strong>Phone Number</strong></th>
+                            <th style="font-size: 1.4rem;"><strong>Ambulance Email</strong></th>
+                            <th style="font-size: 1.4rem;"><strong>Driver Phone No.</strong></th>
+                        </tr>                                    
+                        <tr> 
+                            <th><%= ambReg.ambNum %></th>
+                            <td><%= ambReg.ambOwnerName %></td>
+                            <td><%= ambReg.ambPhone %></td>
+                            <td><%= ambReg.email %></td>
+                            <td><%= ambReg.driverPhone %></td>
+                        </tr>                    
+                    </table>
+                                                   
+                    <br><br>
+    
+                    <% if(order.requestApproved == 'Yes' && order.orderStatus == 'Confirmed'){ %>
+                        <a href="/users/statusA/<%= order.id %>"><h2 style="text-align: center; color: red;">Click here to Complete the Order</h2></a>
+                    <% } %>
+    
                 <% } %>
                 <br><br>
             <% } %> 

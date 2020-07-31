@@ -48,6 +48,7 @@ module.exports.ambReg = function(req,res){
 // Fill for Ambulance reg
 module.exports.createAmb = function(req,res){
     req.body.approved = 'no'
+    req.body.currentStatus = 'waiting'
     console.log(req.body)
     if(req.body.password != req.body.cnfrmPass){
         console.log('Password does not match with confirm Password');

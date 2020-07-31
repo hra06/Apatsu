@@ -62,14 +62,51 @@
                 
                 <br><br>
                 <% if(order.requestApproved == 'no'){ %>
-                    <form action="/hosusers/accept/<%= order.id %>" method="POST" style="text-align: center;">
-                        <input type="submit" name="approved" value="Approve" style="width: 20vw;; height: 4vh; font-weight: bold; font-size: 1.5rem; letter-spacing: .1em; border: none; background-color: #054a4a; color: white;">
-                    </form>
+                        <button style="width: 20vw;; height: 4vh; font-weight: bold; font-size: 1.5rem; letter-spacing: .1em; border: none; background-color: #054a4a; color: white;">Approved</button>
                 <% }else if(order.requestApproved == 'Yes' && order.orderStatus == 'Confirmed'){ %>
                         <p style="width: 20vw;; height: 4vh; font-weight: bold; font-size: 1.5rem; letter-spacing: .1em; border: none; background-color: #054a4a; color: white;text-align: center; margin: auto;">Order Confirmed</p>
+                <% }else if(order.requestApproved == 'Yes' && order.orderStatus == 'Completed'){ %>
+                    <p style="width: 20vw;; height: 4vh; font-weight: bold; font-size: 1.5rem; letter-spacing: .1em; border: none; background-color: #054a4a; color: white;text-align: center; margin: auto;">Order Completed</p>
                 <% } %>
                 <br><br>
-            <% } %> 
+            <% } %>
+
+            <% if(hosReg){ %>         
+                <table style="margin: auto;">
+                    <tr style="background-color: darkgrey;">
+                        <th style="font-size: 1.4rem;"><strong>Hospital Name</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Phone Number</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Hospital Email</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Speciality</strong></th>
+                    </tr>                                    
+                    <tr> 
+                        <th><%= hosReg.hosName %></th>
+                        <td><%= hosReg.hosPhone %></td>
+                        <td><%= hosReg.email %></td>
+                        <td><%= hosReg.hosSpeciality %></td>
+                    </tr>                    
+                </table>
+                                
+                <table style="margin: auto;margin-top: 3vw;">
+                    <caption><b>Hospital Address</b></caption>
+                    <tr style="background-color: darkgrey;">
+                        <th style="width: auto;padding:0.5vh 2vw;">Address</th>
+                        <th style="width: auto;padding:0.5vh 2vw;">Pincode</th>
+                    </tr>
+                    <tr>
+                        <td style="width: auto;padding:0.5vh 2vw;"> <%= hosReg.hosAddress %></td>
+                        <td style="width: auto;padding:0.5vh 2vw;"> <%= hosReg.hosPincode %></td>
+                    </tr>
+                </table>
+                
+                <br><br>
+
+                <% if(order.requestApproved == 'Yes' && order.orderStatus == 'Confirmed'){ %>
+                    <a href="/users/statusH/<%= order.id %>"><h2 style="text-align: center; color: red;">Click here to Complete the Order</h2></a>
+                <% } %>
+
+            <% } %>
+             <br><br>
     </div>
 
     <%- include('./includes/footer.ejs')%>

@@ -23,5 +23,10 @@ router.get('/ambulance/:id',passport.checkAuthentication,userController.ambulanc
 router.get('/hospital/:id',passport.checkAuthentication,userController.hospital);
 router.get('/medicine/:id',passport.checkAuthentication,userController.medicine);
 
+// Status Update
+router.get('/statusH/:id',passport.checkAuthentication,userController.statusH);
+router.get('/statusA/:id',passport.checkAuthentication,userController.statusA);
+router.get('/statusM/:id',passport.checkAuthentication,userController.statusM);
+
 
 module.exports = router;

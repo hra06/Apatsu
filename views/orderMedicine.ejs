@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apatsu | <%= title %></title>
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/orderMed.css">
+</head>
+<body>
+    <%- include('./includes/header.ejs')%>
+
+    <div id="super">
+            <% if(order){ %>
+                <h1 id="title" >Your Shop is Open to Take Orders</h1>
+                <br>            
+                <table>
+                    <tr style="background-color: darkgrey;">
+                        <th style="font-size: 1.4rem;"><strong>Patient Name</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Phone Number</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Email</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Age</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Pincode</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Gender</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Order Status</strong></th>
+                    </tr>                                    
+                    <tr> 
+                        <th><%= order.patientName %></th>
+                        <td><%= order.patientMobile %></td>
+                        <td><%= order.patientEmail %></td>
+                        <td><%= order.patientAge %></td>
+                        <td><%= order.patientPincode %></td>
+                        <td><%= order.patientGender %></td>
+                        <td><%= order.orderStatus %></td>
+                    </tr>                    
+                </table>
+                
+                <table style="margin: auto;margin-top: 3vw;">
+                    <caption><b>Medicine Details</b></caption>
+                    <tr style="background-color: darkgrey;">
+                        <th style="font-size: 1.4rem;"><strong>S No.</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Medicine Name</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Quantity</strong></th>
+                    </tr>                                    
+                    <tr> 
+                        <th>1</th>
+                        <td><%= order.patientMedicine1 %></td>
+                        <td><%= order.quantity1 %></td>
+                    </tr>
+                    <% if(order.patientMedicine2 != ''){ %> 
+                        <tr> 
+                            <th>2</th>
+                            <td><%= order.patientMedicine2 %></td>
+                            <td><%= order.quantity2 %></td>
+                        </tr>
+                    <% } %>
+                    <% if(order.patientMedicine3 != ''){ %> 
+                        <tr> 
+                            <th>3</th>
+                            <td><%= order.patientMedicine3 %></td>
+                            <td><%= order.quantity3 %></td>
+                        </tr>
+                    <% } %>
+                    <% if(order.patientMedicine4 != ''){ %> 
+                        <tr> 
+                            <th>4</th>
+                            <td><%= order.patientMedicine4 %></td>
+                            <td><%= order.quantity4 %></td>
+                        </tr>
+                    <% } %>
+                    <% if(order.patientMedicine5 != ''){ %> 
+                        <tr> 
+                            <th>5</th>
+                            <td><%= order.patientMedicine5 %></td>
+                            <td><%= order.quantity5 %></td>
+                        </tr>
+                    <% } %>
+                    <% if(order.patientMedicine6 != ''){ %> 
+                        <tr> 
+                            <th>6</th>
+                            <td><%= order.patientMedicine6 %></td>
+                            <td><%= order.quantity6 %></td>
+                        </tr>
+                    <% } %>
+                    <% if(order.patientMedicine7 != ''){ %> 
+                        <tr> 
+                            <th>7</th>
+                            <td><%= order.patientMedicine7 %></td>
+                            <td><%= order.quantity7 %></td>
+                        </tr>
+                    <% } %>
+                    <% if(order.patientMedicine8 != ''){ %> 
+                        <tr> 
+                            <th>8</th>
+                            <td><%= order.patientMedicine8 %></td>
+                            <td><%= order.quantity8 %></td>
+                        </tr>
+                    <% } %>                    
+                    <% if(order.patientMedicine9 != ''){ %> 
+                        <tr> 
+                            <th>9</th>
+                            <td><%= order.patientMedicine9 %></td>
+                            <td><%= order.quantity9 %></td>
+                        </tr>
+                    <% } %>
+                    <% if(order.patientMedicine10 != ''){ %> 
+                        <tr> 
+                            <th>10</th>
+                            <td><%= order.patientMedicine10 %></td>
+                            <td><%= order.quantity10 %></td>
+                        </tr>
+                    <% } %>
+                </table>
+
+                
+                <table style="margin: auto;margin-top: 3vw;">
+                    <tr style="background-color: darkgrey;">
+                        <th style="width: auto;padding:0.5vh 2vw;">Address</th>
+                    </tr>
+                    <tr>
+                        <td style="width: auto;padding:0.5vh 2vw;"> <%= order.patientAddress %></td>
+                    </tr>
+                </table>
+                
+                <br><br>
+                <% if(order.requestApproved == 'no'){ %>
+                    <button style="width: 20vw;; height: 4vh; font-weight: bold; font-size: 1.5rem; letter-spacing: .1em; border: none; background-color: #054a4a; color: white;">Approved</button>
+                <% }else if(order.requestApproved == 'Yes' && order.orderStatus == 'Confirmed'){ %>
+                    <p style="width: 20vw;; height: 4vh; font-weight: bold; font-size: 1.5rem; letter-spacing: .1em; border: none; background-color: #054a4a; color: white;text-align: center; margin: auto;">Order Confirmed</p>
+                <% }else if(order.requestApproved == 'Yes' && order.orderStatus == 'Completed'){ %>
+                    <p style="width: 20vw;; height: 4vh; font-weight: bold; font-size: 1.5rem; letter-spacing: .1em; border: none; background-color: #054a4a; color: white;text-align: center; margin: auto;">Order Completed</p>
+                <% }else if(order.orderStatus == 'Dispatched'){ %>
+                    <table style="margin: auto;">
+                        <tr style="background-color: darkgrey;">
+                            <th>Delivery Phone No.</th>
+                            <td><%= order.dispatchPh %></td>
+                        </tr>
+                    </table>
+                    <br>
+                    <p style="width: 20vw;; height: 4vh; font-weight: bold; font-size: 1.5rem; letter-spacing: .1em; border: none; background-color: #054a4a; color: white;text-align: center; margin: auto;">Order Dispatched</p>
+                <% }else if(order.requestApproved == 'Yes' && order.orderStatus == 'Completed'){ %>
+                    <p style="width: 20vw;; height: 4vh; font-weight: bold; font-size: 1.5rem; letter-spacing: .1em; border: none; background-color: #054a4a; color: white;text-align: center; margin: auto;">Order Completed</p>
+                <% } %>
+                <br><br>
+            <% } %> 
+
+            <% if(medReg){ %>         
+                <table style="margin: auto;">
+                    <tr style="background-color: darkgrey;">
+                        <th style="font-size: 1.4rem;"><strong>Shop Name</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Phone Number</strong></th>
+                        <th style="font-size: 1.4rem;"><strong>Shop Email</strong></th>
+                    </tr>                                    
+                    <tr> 
+                        <th><%= medReg.shopName %></th>
+                        <td><%= medReg.shopPhone %></td>
+                        <td><%= medReg.email %></td>
+                    </tr>                    
+                </table>
+                                
+                <table style="margin: auto;margin-top: 3vw;">
+                    <caption><b>Shop Address</b></caption>
+                    <tr style="background-color: darkgrey;">
+                        <th style="width: auto;padding:0.5vh 2vw;">Address</th>
+                        <th style="width: auto;padding:0.5vh 2vw;">Pincode</th>
+                    </tr>
+                    <tr>
+                        <td style="width: auto;padding:0.5vh 2vw;"> <%= medReg.shopAddress %></td>
+                        <td style="width: auto;padding:0.5vh 2vw;"> <%= medReg.shopPincode %></td>
+                    </tr>
+                </table>
+                
+                <br><br>
+
+                <% if(order.requestApproved == 'Yes' && order.orderStatus == 'Dispatched'){ %>
+                    <a href="/users/statusM/<%= order.id %>"><h2 style="text-align: center; color: red;">Click here to Complete the Order</h2></a>
+                <% } %>
+                <br><br>
+
+            <% } %>
+    </div>
+
+    <%- include('./includes/footer.ejs')%>
+</body>
+</html>

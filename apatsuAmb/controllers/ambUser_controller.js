@@ -1,4 +1,5 @@
 const Ambulances = require('./../../models/ambulance');
+const AmbReg = require('./../../models/ambReg')
 
 module.exports.createSession = function(req,res){
     return res.redirect('/');
@@ -67,6 +68,10 @@ module.exports.accept =async function(req,res){
                 requestApproved:'Yes',
                 orderStatus : 'Confirmed'
             });
+            
+            let ambReg = await AmbReg.findByIdAndUpdate(req.user._id,{
+                currentStatus : 'booked'
+            })
         
             return res.redirect('back');
         }
@@ -99,7 +104,7 @@ module.exports.currentBooking =async function(req,res){
 // Open Previous Booking Page
 module.exports.previousBookings =async function(req,res){
     try{
-        let myBooking = await Ambulances.find({sellerId:req.user.id,orderStatus:'completed'});
+        let myBooking = await Ambulances.find({sellerId:req.user.id,orderStatus:'Completed'});
         console.log('Harsh previousBookings Details ambUser Controller')
         console.log(myBooking)
         

@@ -119,7 +119,7 @@ module.exports.dispatch = async function(req,res){
 // delivered Orders Page
 module.exports.delivered =async function(req,res){
     try{
-        let deliveredOrder = await Medicines.find({sellerId:req.user.id,orderStatus:'Delivered'});
+        let deliveredOrder = await Medicines.find({sellerId:req.user.id,orderStatus:'Completed'});
         console.log('Harsh Shop Details Med User Controller')
         return res.render('shop',{
             title:'Delivered Orders',
