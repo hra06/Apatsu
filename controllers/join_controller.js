@@ -21,7 +21,8 @@ module.exports.createMed = function(req,res){
             if(err){
                 console.log('error in finding the Medical Shop while signingUp');
                 console.log(err)
-                return res.redirect('back');
+                req.flash('error','try again');
+                return res.redirect('/404');
             }
 
             if(!medReg){
@@ -29,7 +30,8 @@ module.exports.createMed = function(req,res){
                     if(err){
                         console.log('error in Creating the medical shop while signingUp');
                         console.log(err)
-                        return res.redirect('back');
+                        req.flash('error','try again');
+                        return res.redirect('/404');
                     }
                     return res.redirect('/');
                 });
@@ -58,7 +60,8 @@ module.exports.createAmb = function(req,res){
         AmbReg.findOne({email:req.body.email}, function(err, ambReg){
             if(err){
                 console.log('error in finding the Medical Shop while signingUp');
-                return;
+                req.flash('error','try again');
+                return res.redirect('/404');
             }
 
             if(!ambReg){
@@ -95,7 +98,8 @@ module.exports.createHos = function(req,res){
         HosReg.findOne({email:req.body.email}, function(err, hosReg){
             if(err){
                 console.log('error in finding the Medical Shop while signingUp');
-                return;
+                req.flash('error','try again');
+                return res.redirect('/404');
             }
 
             if(!hosReg){

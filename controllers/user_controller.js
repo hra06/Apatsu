@@ -5,20 +5,37 @@ const Medicine = require('./../models/medicines');
 const AmbReg = require('./../models/ambReg');
 const HosReg = require('./../models/hosReg');
 const MedReg = require('./../models/medReg');
-const Ambulance = require('./../models/ambulance');
+const validator = require('validator');
 
 
 module.exports.create = function(req,res){
+    if(!validator.isEmail(req.body.email)){
+        req.flash('error','Please Enter a valid Email Address');
+        return res.redirect('back')
+    }
+    if(req.body.password.length < 6 || req.body.password.length >12){
+        req.flash('error','Password must be length of 6 to 12 characters long')
+        return res.redirect('back')
+    }
     if(req.body.password != req.body.confirmPassword){
+        req.flash('error','Password does not match with confirm Password');
         return res.redirect('back');
     }
-
+    
     User.findOne({email: req.body.email}, function(err, user){
-        if(err){ console.log('error in finding the user while sigingUp'); return}
+        if(err){
+            console.log('error in finding the user while sigingUp');
+            req.flash('error','error in signing up');
+            return res.render('404')
+        }
 
         if(!user){
             User.create(req.body, function(err, user){
-                if(err){ console.log('error in creating the user while sigingUp'); return}
+                if(err){
+                    req.flash('error','error in signing up');
+                    console.log('error in creating the user while sigingUp');
+                    return res.redirect('/404');
+                }
 
                 return res.redirect('/log-in')
             })
@@ -55,12 +72,24 @@ module.exports.profile =async function(req,res){
             objArray:objArray
         })
     } catch (err) {
-        
+        console.log(err);
+        console.log('user userCont profile err');
+        req.flash('error','error in profile page->try again');
+        return res.redirect('/404');
     }
 }
 
 
 module.exports.createSession = function(req,res){
+    console.log(req.body)
+    if(!validator.isEmail(req.body.email)){
+        req.flash('error','Please Enter a valid Email Address');
+        return res.redirect('back')
+    }
+    if(req.body.password.length < 6 || req.body.password.length >12){
+        req.flash('error','Password must be length of 6 to 12 characters long')
+        return res.redirect('back')
+    }
     req.flash('success','Logged in Successfully');
     return res.redirect('/');
 }
@@ -88,7 +117,8 @@ module.exports.ambulance =async function(req,res){
     }catch(err){
         console.log(err)
         console.log('Harsh is inside user controller of user in ambulance err')
-        // return res.redirect('back')
+        req.flash('error','try again');
+        return res.redirect('/404');
     }
 }
 
@@ -107,8 +137,9 @@ module.exports.hospital =async function(req,res){
         });
     }catch(err){
         console.log(err)
-        console.log('Harsh is inside user controller of user in hospital err')
-        return res.redirect('back')
+        console.log('Harsh is inside user controller of user in hospital err');
+        req.flash('error','try again');
+        return res.redirect('/404');
     }
 }
 
@@ -127,8 +158,9 @@ module.exports.medicine =async function(req,res){
         })
     }catch(err){
         console.log(err)
-        console.log('Harsh is inside user controller of user in medicine err')
-        return res.redirect('back')
+        console.log('Harsh is inside user controller of user in medicine err');
+        req.flash('error','try again');
+        return res.redirect('/404');
     }
 }
 
@@ -139,10 +171,12 @@ module.exports.statusH =async function(req,res){
             orderStatus : 'Completed'
         });
 
+        req.flash('success', 'Completed')
         return res.redirect('back')
     } catch (err) {
-        console.log('Harsh is inside statusH of usercontoller')
-        return res.redirect('back')
+        console.log('Harsh is inside statusH of usercontoller');
+        req.flash('error','try again');
+        return res.redirect('/404');
     }
 }
 
@@ -156,15 +190,16 @@ module.exports.statusA =async function(req,res){
             currentStatus : 'waiting'
         })
 
-        
+            req.flash('success', 'Completed')
             console.log('Harsh was here')
             console.log(ambReg)
-            return res.redirect('back')
+            return res.redirect('back');
         
     } catch (err) {
         console.log('Harsh is inside statusaAof usercontoller')
-        console.log(err)
-        return res.redirect('back')
+        console.log(err);
+        req.flash('error','try again');
+        return res.redirect('/404');
     }
 }
 
@@ -174,9 +209,11 @@ module.exports.statusM =async function(req,res){
             orderStatus : 'Completed'
         });
 
+        req.flash('success', 'Completed')
         return res.redirect('back')
     } catch (err) {
         console.log('Harsh is inside statusaAof usercontoller')
-        return res.redirect('back')
+        req.flash('error','try again');
+        return res.redirect('/404');
     }
 }

@@ -1,13 +1,16 @@
 const Medicines = require('./../../models/medicines');
+const validator = require('validator');
 
 // use passport as a middleware to authenticate
 module.exports.createSession = function(req,res){
+    req.flash('success','Logged in Successfully');
     return res.redirect('/');
 }
 
 // Destroy Session
 module.exports.destroySession = function(req,res){
     req.logout();
+    req.flash('success','Logged Out Successfully');
     return res.redirect('/');
 }
 
@@ -27,8 +30,9 @@ module.exports.shop =async function(req,res){
             });
         }catch{
             console.log('Shop Catch Err Block in medUser Controller')
-            console.log(err)
-            return res.redirect('back');
+            console.log(err);
+            req.flash('error','Try Again');
+            return res.redirect('/404');
         }
     }
 }
@@ -45,8 +49,9 @@ module.exports.confirmed =async function(req,res){
         });
     }catch{
         console.log('Shop Catch Err Block in medUser Controller')
-        console.log(err)
-        return res.redirect('back');
+        console.log(err);
+        req.flash('error','Try Again');
+        return res.redirect('/404');
     }
 }
 
@@ -61,8 +66,9 @@ module.exports.order = async function(req,res){
         })
     }catch{
         console.log('in MedUser Controller in order Catch');
-        console.log(err)
-        return res.redirect('back')
+        console.log(err);
+        req.flash('error','Try Again');
+        return res.redirect('/404');
     }
 }
 
@@ -79,8 +85,9 @@ module.exports.accept =async function(req,res){
         
     }catch{
         console.log('In Medium Controller in accept Catch')
-        console.log(err)
-        return res.redirect('back');
+        console.log(err);
+        req.flash('error','Try Again');
+        return res.redirect('/404');
     }
 }
 
@@ -95,24 +102,33 @@ module.exports.dispatched =async function(req,res){
         });
     }catch{
         console.log('dispatch Catch Err Block in medUser Controller')
-        console.log(err)
-        return res.redirect('back');
+        console.log(err);
+        req.flash('error','Try Again');
+        return res.redirect('/404');
     }
 }
 
 // Dispatch The Order
 module.exports.dispatch = async function(req,res){
+
+    if(req.body.dispatch.length != 10 || !validator.isNumber(req.body.dispatch)){
+        req.flash('error','Type a Real Phone No.');
+        return res.redirect('back');
+    }
+
     try{
         let medicines = await Medicines.findByIdAndUpdate(req.params.id, {
             dispatchPh : req.body.dispatchPh,
             orderStatus : 'Dispatched'
         });
 
+        req.flash('success','Order successfully dispatched');
         return res.redirect('back')
     }catch{
         console.log('In Dispatch Med USer Controller');
         console.log(err);
-        return res.redirect('back')
+        req.flash('error','Try Again');
+        return res.redirect('/404');
     }
 }
 
@@ -127,7 +143,8 @@ module.exports.delivered =async function(req,res){
         });
     }catch{
         console.log('delivered Catch Err Block in medUser Controller')
-        console.log(err)
-        return res.redirect('back')
+        console.log(err);
+        req.flash('error','Try Again');
+        return res.redirect('/404');
     }
 }

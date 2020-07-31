@@ -1,11 +1,13 @@
 const Hospitals = require('./../../models/hospital')
 
 module.exports.createSession = function(req,res){
+    req.flash('success','Logged In successfully');
     return res.redirect('/');
 }
 
 module.exports.destroySession = function(req,res){
     req.logout();
+    req.flash('success','Logged Out successfully');
     return res.redirect('/');
 }
 

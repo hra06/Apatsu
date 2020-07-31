@@ -11,3 +11,7 @@ module.exports.login = function(req,res){
 
     return res.render('login',{title:'LogIn | Super Admin'})
 }
+
+module.exports.fof = function(req,res){
+    return res.render('404')
+}

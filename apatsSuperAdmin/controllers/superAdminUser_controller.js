@@ -4,11 +4,13 @@ const HosReg = require('./../../models/hosReg');
 
 // Session Creation & Deletion
 module.exports.createSession = function(req,res){
+    req.flash('success','Logged out from Super Portal');
     return res.redirect('/');
 }
 
 module.exports.destroySession = function(req,res){
     req.logout();
+    req.flash('success','Logged out from Super Portal');
     return res.redirect('/');
 }
 
@@ -107,7 +109,9 @@ module.exports.hospitals = async function(req,res){
 
     }catch(err){
         console.log('Error Super Admin hospitals');
-        console.log(err)
+        console.log(err);
+        req.flash('error','Try Again!');
+        return res.redirect('/404');
     }    
 }
 
@@ -127,6 +131,8 @@ module.exports.cancelHospitals = async function(req,res){
 
     }catch(err){
         console.log('Error Super Admin Cancel Hospitals');
-        console.log(err)
+        console.log(err);
+        req.flash('error','Try Again!');
+        return res.redirect('/404');
     }    
 }

@@ -7,7 +7,8 @@ const router = express.Router();
 
 router.get('/',passport.checkAuthentication,medHomeController.home)
 // router.get('/team',medHomeController.team);
-router.get('/login',medHomeController.login)
+router.get('/login',medHomeController.login);
+router.get('/404',medHomeController.fof);
 // router.get('/sign-up',medHomeController.logup);
 // router.get('/services',medHomeController.services);
 

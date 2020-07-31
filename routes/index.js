@@ -11,6 +11,7 @@ router.get('/log-in',homeController.login)
 router.get('/sign-up',homeController.logup);
 router.get('/services',homeController.services);
 router.get('/joinUs',homeController.joinUs);
+router.get('/404',homeController.fof);
 
 router.use('/users', require('./users'))
 router.use('/service', require('./services'))

@@ -25,7 +25,7 @@ app.set('views','./views');
 // mongo  store is used to store the session cookie in db
 app.use(session({
     name:'apatsu',
-    secret:'helloworldMedical',                     //change the secrett before deployment in production
+    secret:'helloworldSuperAdmin',                     //change the secrett before deployment in production
     saveUninitialized:false,
     resave:false,
     cookie:{
@@ -46,6 +46,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
+
+
+// flash uses session cookies
+app.use(flash());
+app.use(customMware.setFlash);
+
 
 app.use('/', require('./routes'))
 

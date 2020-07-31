@@ -39,6 +39,10 @@ module.exports.logup = function(req,res){
     return res.render('logup',{title:'Sign-Up'})
 }
 
+module.exports.fof = function(req,res){
+    return res.render('404');
+}
+
 // Super Admin
 // module.exports.sa = function(req,res){
 //     SuperAdmin.create(req.body, function(err, superAdmin){

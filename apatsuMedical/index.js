@@ -46,6 +46,11 @@ app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
 
+// flash uses session cookies
+app.use(flash());
+app.use(customMware.setFlash);
+
+
 app.use('/', require('./routes'))
 
 app.listen(port, function(err){
